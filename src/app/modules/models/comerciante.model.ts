@@ -8,6 +8,7 @@ export class Comerciante {
   endereco?: string;
   bairro?: string;
   cidade?: string;
+  uf?: string;
   tipoNegocio?: string;
   instagram?: string;
   facebook?: string;

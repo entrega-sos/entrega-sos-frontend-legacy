@@ -20,19 +20,20 @@
 
       <div class="row">
         <div class="col-sm-3">
-          <input-group label="CEP" type="cep"></input-group>
+          <input-group [(ngModel)]="comerciante.cep" [debounce]="300" (onDebounce)="buscarEndereco()" id="cep"
+            label="CEP" type="cep"></input-group>
         </div>
 
         <div class="col-sm-4">
-          <input-group label="Cidade"></input-group>
+          <input-group [(ngModel)]="comerciante.endereco" label="Endereço"></input-group>
         </div>
 
         <div class="col-sm-1">
-          <select-group label="UF"></select-group>
+          <select-group [(ngModel)]="comerciante.uf" label="UF"></select-group>
         </div>
 
         <div class="col-sm-4">
-          <select-group label="Tipo de Negócio"></select-group>
+          <input-group [(ngModel)]="comerciante.cidade" label="Cidade"></input-group>
         </div>
       </div>
 
