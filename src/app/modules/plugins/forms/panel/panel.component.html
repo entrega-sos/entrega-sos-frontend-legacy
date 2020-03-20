@@ -1,0 +1,21 @@
+<div class="m-portlet m-portlet--head-solid-bg m-portlet--bordered {{ getClassColor() }}" id="internal_{{ componentId }}">
+  <div *ngIf="getTitulo()" class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+      <div class="m-portlet__head-title">
+        <h3 class="m-portlet__head-text">
+          {{ getTitulo() }}
+          <small>
+            {{ getSubTitulo() }}
+          </small>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <form class="m-form">
+    <div class="m-portlet__body" [style.maxHeight.px]="maxHeight" [style.minHeight.px]="minHeight" [ngClass]="{'panel-max-height': hasMaxHeight()}">
+      <div class="m-form__section m-form__section--first">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </form>
+</div>

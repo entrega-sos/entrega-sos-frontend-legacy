@@ -1,0 +1,31 @@
+<div class="form-group m-form__group">
+  <label *ngIf="label" for="internal_{{ componentId }}">
+    {{ label }}
+    <a *ngIf="obrigatorio" class="a-tooltip a-obrigatorio" tabindex="-1" data-toogle="tooltip" data-placement="top" title="Campo obrigatório" href="javascript:void(0)">
+      *
+    </a>
+
+    <a *ngIf="help" class="a-tooltip" data-toogle="tooltip" tabindex="-1" data-placement="top" title="{{ help }}" href="javascript:void(0)">
+      <i class="fa fa-question-circle" aria-hidden="true"></i>
+    </a>
+
+    <a *ngIf="infoText" data-toggle="popoverl" title="Informação" data-placement="right" [attr.data-content]="infoText">
+      <i class="fa fa-question-circle" aria-hidden="true"></i>
+    </a>
+  </label>
+  
+  <select class="form-control m-input" id="internal_{{ componentId }}" [disabled]="disabled" [multiple]="multiple">
+
+    <ng-template [ngIf]="!getOptionGroups()">
+      <option *ngFor="let item of options" value="{{ item.value }}">{{ item.label }}</option>
+    </ng-template>
+
+    <ng-template [ngIf]="getOptionGroups()">
+      <ng-template ngFor let-group="$implicit" [ngForOf]="getOptionGroups()">
+        <optgroup label="{{ group }}">
+          <option *ngFor="let item of (options | groupFilter: group) " value="{{ item.value }}">{{ item.label }}</option>
+        </optgroup>
+      </ng-template>
+    </ng-template>
+  </select>
+</div>

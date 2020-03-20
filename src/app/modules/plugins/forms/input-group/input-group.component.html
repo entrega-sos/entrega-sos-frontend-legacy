@@ -1,0 +1,46 @@
+<div class="form-group m-form__group">
+  <label *ngIf="label" class="{{ classLabel }}" for="internal_{{ componentId }} ">
+    {{ label }}
+
+    <a *ngIf="obrigatorio" class="a-tooltip a-obrigatorio" tabindex="-1" data-toogle="tooltip" data-placement="top" title="Campo obrigatório" href="javascript:void(0)">
+      *
+    </a>
+
+    <a *ngIf="help" class="a-tooltip" data-toogle="tooltip" tabindex="-1" data-placement="top" title="{{ help }}" href="javascript:void(0)">
+      <i class="fa fa-question-circle" aria-hidden="true"></i>
+    </a>
+
+    <a *ngIf="infoText" data-toggle="popoverl" title="Informação" data-placement="right" [attr.data-content]="infoText">
+      <i class="fa fa-question-circle" aria-hidden="true"></i>
+    </a>
+  </label>
+
+  <ng-template [ngIf]="type != 'checkbox'">
+    <ng-template [ngIf]="getMask()">
+      <input [min]="min" [max]="max" [textMask]="{ mask: getMask(), keepCharPositions : false, pipe : getPipe() }" [type]="getInputType()" class="form-control m-input {{ classInput }}" id="{{getInternalComponentId()}}" name="{{getInternalComponentId()}}" [(ngModel)]="value" (blur)="onBlur()"
+        (focus)="onFocus()" (ngModelChange)="changeModel()" [disabled]="disabled" [autofocus]="autoFocus" autocomplete="off" [placeholder]="help" />
+    </ng-template>
+
+    <ng-template [ngIf]="!getMask()">
+      <input [min]="min" [max]="max" [type]="getInputType()" class="form-control m-input {{ classInput }}" id="{{getInternalComponentId()}}" name="{{getInternalComponentId()}}" [(ngModel)]="value" (blur)="onBlur()" (focus)="onFocus()" (ngModelChange)="changeModel()" [disabled]="disabled"
+        [autofocus]="autoFocus" [ngModelOptions]="{standalone: true}" autocomplete="off" [placeholder]="help" />
+    </ng-template>
+  </ng-template>
+
+  <ng-template [ngIf]="type == 'checkbox'">
+    <div class="form-group m-form__group row no-padding">
+      <div class="col-sm-12">
+        <!-- [{{ value }} | {{ checked }}] -->
+        <div [ngClass]="'ui-chkbox container'">
+          <div class="ui-helper-hidden-accessible">
+            <input [min]="min" [max]="max" #input type="checkbox" [attr.id]="getInternalComponentId()" readonly [disabled]="disabled" (focus)="onFocus()" (blur)="onBlur()" [checked]="checked" [attr.data-on-text]="checkedLabel" data-handle-width="200" [attr.data-off-text]="uncheckedLabel"
+              [attr.data-on-color]="'success'">
+          </div>
+          <div class="ui-chkbox-box checkmark" [attr.id]="this.getInternalComponentId() + '_span'" (click)="onClick($event,input)">
+            <span class="ui-chkbox-icon" style="margin-top: 10px;" [ngClass]="{'fa':true,'fa-check':checked==true,'fa-times':checked==false,'':value==null}"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
