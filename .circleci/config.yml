@@ -1,17 +1,17 @@
-version: 2.1
-orbs:
-  node: circleci/node@1.1.6
+version: 2
 jobs:
-  build-and-test:
-    executor:
-      name: node/default
+  build:
+    machine: true
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - run: |
+          echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+
+      - run: docker build -t entregasos/frontend:$CIRCLE_BRANCH .
+
+      - run: docker push entregasos/frontend:$CIRCLE_BRANCH
+
 workflows:
-    build-and-test:
+    build:
       jobs:
-        - build-and-test
+        - build
