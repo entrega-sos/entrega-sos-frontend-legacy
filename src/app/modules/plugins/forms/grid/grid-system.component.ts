@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector: '[row]',
+    selector: 'row',
     template: `<div class="row"><ng-content></ng-content></div>`,
     encapsulation: ViewEncapsulation.None
 })

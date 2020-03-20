@@ -1,0 +1,81 @@
+<!-- Main content -->
+<section class="content">
+
+  <!-- Default box -->
+
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Cadastro de comerciante</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <input-group [(ngModel)]="comerciante.nome" label="Nome / Fantasia da Empresa"></input-group>
+        </div>
+
+        <div class="col-sm-6">
+          <input-group [(ngModel)]="comerciante.celular" label="Telefone / WhatsApp" type="mobile-phone"></input-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <input-group [(ngModel)]="comerciante.cep" [debounce]="300" (onDebounce)="buscarEndereco()" id="cep"
+            label="CEP" type="cep"></input-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.endereco" label="Endereço"></input-group>
+        </div>
+
+        <div class="col-sm-1">
+          <select-group [(ngModel)]="comerciante.uf" label="UF"></select-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.cidade" label="Cidade"></input-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <select-group label="Tipo de Negócio"></select-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group label="Instagram"></input-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group label="Facebook"></input-group>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.senha" label="Senha" type="password"></input-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.confirmacaoSenha" label="Confirmação da senha" type="password">
+          </input-group>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-sm-3 offset-sm-6">
+          <botao-voltar></botao-voltar>
+        </div>
+        <div class="col-sm-3">
+          <botao-salvar></botao-salvar>
+        </div>
+      </div>
+    </div>
+    <!-- /.card-footer-->
+  </div>
+  <!-- /.card -->
+</section>
