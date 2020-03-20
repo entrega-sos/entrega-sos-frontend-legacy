@@ -10,11 +10,11 @@
     <div class="card-body">
       <div class="row">
         <div class="col-sm-6">
-          <input-group label="Nome / Fantasia da Empresa"></input-group>
+          <input-group [(ngModel)]="comerciante.nome" label="Nome / Fantasia da Empresa"></input-group>
         </div>
 
         <div class="col-sm-6">
-          <input-group label="Telefone / WhatsApp" type="mobile-phone"></input-group>
+          <input-group [(ngModel)]="comerciante.celular" label="Telefone / WhatsApp" type="mobile-phone"></input-group>
         </div>
       </div>
 
@@ -48,6 +48,18 @@
 
         <div class="col-sm-4">
           <input-group label="Facebook"></input-group>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.senha" label="Senha" type="password"></input-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.confirmacaoSenha" label="Confirmação da senha" type="password">
+          </input-group>
         </div>
       </div>
 

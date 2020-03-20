@@ -12,9 +12,9 @@ declare var $: any
 })
 export class CadastroComercianteComponent implements OnInit, OnDestroy {
 
-  comerciante: Comerciante = {}
+  comerciante: Comerciante = new Comerciante()
 
-  subscriptions: Subscription[] = [];
+  subscriptions: Subscription[] = []
 
   constructor(private comercianteService: ComercianteService) { }
 
