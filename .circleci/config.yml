@@ -16,8 +16,9 @@ jobs:
       - checkout
       - run: |
           echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
-      - run: docker build -t entregasos/frontend:$CIRCLE_BUILD_NUM .
+      - run: docker build -t entregasos/frontend:$CIRCLE_BUILD_NUM -t entregasos/frontend:latest .
       - run: docker push entregasos/frontend:$CIRCLE_BUILD_NUM
+      - run: docker push entregasos/frontend:latest
 
 workflows:
   version: 2
