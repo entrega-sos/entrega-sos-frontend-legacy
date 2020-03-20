@@ -1,0 +1,54 @@
+<div class="row" *ngIf="paginatorOnTop">
+  <div [ngClass]="{'col-sm-6': refTop.innerHTML.trim(), 'col-sm-12': !refTop.innerHTML.trim()}">
+    <paginator #topPaginator [totalPages]="getTotalPages()" [totalRecords]="getTotalRecords()" [totalItens]="getTotalPages()" (onPageChange)="paginatorChange($event)"></paginator>
+  </div>
+
+  <div #refTop class="col-sm-6 text-right">
+    <ng-content select="buttons-right-top"></ng-content>
+  </div>
+</div>
+
+<div class="row" [style.min-height.px]="height">
+  <div class="col-sm-12">
+
+    <div class="bd rounded table-responsive" id="{{ componentId }}">
+      <table class="{{ cssClass }} table mg-b-0 table-striped bg-white">
+        <thead class="thead-colored thead-primary">
+          <tr>
+            <th [style.width.%]="coluna.widthPercent" *ngFor="let coluna of colunas" class="wd-{{ coluna.width }}p {{ coluna.getAlingmentString( coluna.alignmentHeader )}} {{ coluna.cssHeader}}">{{ coluna.header }}</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <ng-template ngFor let-item="$implicit" let-i="index" [ngForOf]="data">
+
+            <tr [ngClass]="{'linha-selecionada': i == selectedRow && selectable}" (click)="selectedRow = i" (click)="clickLinha(item)">
+
+              <ng-template ngFor let-coluna="$implicit" let-index="index" [ngForOf]="colunas">
+
+                <!-- Coluna padrão - sem template -->
+                <td [style.width.%]="coluna.widthPercent" [ngClass]="coluna.cssDados" class="wd-{{ coluna.width }}p" *ngIf="!coluna.useTemplate">{{ resolveFieldValue( item, coluna.field ) }}</td>
+
+                <!-- Coluna com template -->
+                <td [style.width.%]="coluna.widthPercent" [ngClass]="coluna.cssDados" class="wd-{{ coluna.width }}p" *ngIf="coluna.useTemplate">
+                  <column-template [column]="coluna" [data]="item" [index]="index"></column-template>
+                </td>
+
+              </ng-template>
+            </tr>
+          </ng-template>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="paginatorOnBottom">
+  <div [ngClass]="{'col-sm-6': refBottom.innerHTML.trim(), 'col-sm-12': !refBottom.innerHTML.trim()}">
+    <paginator #bottomPaginator [totalPages]="getTotalPages()" [totalRecords]="getTotalRecords()" [totalItens]="getTotalPages()" (onPageChange)="paginatorChange($event)"></paginator>
+  </div>
+
+  <div #refBottom class="col-sm-6 text-right">
+    <ng-content select="buttons-right"></ng-content>
+  </div>
+</div>

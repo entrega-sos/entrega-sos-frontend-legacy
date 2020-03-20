@@ -1,0 +1,35 @@
+<div class="ht-60 mg-t-10 bd d-flex align-items-center justify-content-center">
+  <ul class="pagination pagination-basic pagination-info pagination-circle mg-b-0">
+
+    <li class="page-item">
+      <a title="Primeiro" class="page-link" data-page="1" disabled="disabled" (click)="first()">
+        <i class="fa fa-angle-double-left"></i>
+      </a>
+    </li>
+
+    <li class="page-item">
+      <a title="Página Anterior" class="page-link" data-page="1" disabled="disabled" (click)="previous()">
+        <i class="fa fa-angle-left"></i>
+      </a>
+    </li>
+
+    <li *ngFor="let i of getItens()" class="page-item" [ngClass]="{' active' : current == i}">
+      <a class="page-link" href="javascript:void(0);" title="Página {{ i }}" (click)="setCurrent(i)"> {{ i }}</a>
+    </li>
+
+    <li class="page-item">
+      <a title="Próxima página" class="page-link" (click)="next()">
+        <i class="fa fa-angle-right"></i>
+      </a>
+    </li>
+
+    <li class="page-item">
+      <a title="Último" class="page-link" (click)="last()">
+        <i class="fa fa-angle-double-right"></i>
+      </a>
+    </li>
+  </ul>
+  <div *ngIf="showPagerInfo" class="pager-info">
+    <span class="pager-detail mg-l-10">Página {{ getCurrentPage() }} de {{ getTotalPages() }} - {{ getTotalRecords() }} registros encontrados.</span>
+  </div>
+</div>

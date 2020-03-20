@@ -1,0 +1,22 @@
+<div class="modal fade" id="{{ componentId }}" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered {{ getLargeClass() }}" role="document" [style.maxWidth]="width" [style.height]="'80%'">
+    <div class="modal-content">
+      <div [ngClass]="{'modal-header2': diminuirPadding, 'modal-header': !diminuirPadding}">
+        <h5 class="modal-title">
+          <i class="{{ classIcon }}" aria-expanded="true"></i>
+          {{ getTitulo() }}</h5>
+        <button *ngIf="habilitarBotaoClose" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            ×
+          </span>
+        </button>
+      </div>
+      <div class="modal-body" [ngClass]="{'modal-body2': diminuirPadding}">
+        <ng-content></ng-content>
+      </div>
+      <div *ngIf="mostrarModalFooter" class="modal-footer">
+        <ng-content select=".footer-modal"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+tr {
+  cursor : pointer;
+}
+
+.linha-selecionada {
+  // border-color: $cor-azul-background !important;
+  // background-image: none !important;
+  // background-color: $cor-azul-background !important;
+  // color: $cor-fonte !important;
+}
+
+/* Bordas nas tabelas */
+.tabelaComBorda {
+  border: 1px solid #7C8183 !important; }
+  .tabelaComBorda th,
+  .tabelaComBorda td {
+    border: 1px solid #7C8183 !important; }
+  .tabelaComBorda thead th,
+  .tabelaComBorda thead td {
+    border-bottom-width: 2px; }

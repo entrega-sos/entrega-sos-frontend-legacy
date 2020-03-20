@@ -1,0 +1,22 @@
+.modal-body2 {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 0px !important;
+    padding-top: 15px !important;
+    margin-bottom: -15px !important;
+}
+
+.modal-header2 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.modal-header2 .close {
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+}

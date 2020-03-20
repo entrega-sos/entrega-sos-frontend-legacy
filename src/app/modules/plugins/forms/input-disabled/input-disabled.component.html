@@ -1,0 +1,8 @@
+<div class="form-group m-form__group">
+  <label *ngIf="label" class="{{ classLabel }}" for="internal_{{ componentId }} ">{{ label }}</label>
+  <input type="text" class="form-control" id="{{getInternalComponentId()}}" name="{{getInternalComponentId()}}" disabled="disabled" value="{{ text }} " />
+
+  <span class="m-form__help">
+    {{ help }}
+  </span>
+</div>
