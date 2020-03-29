@@ -50,6 +50,7 @@ import { DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
 import { DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
 import { environment } from 'src/environments/environment';
 import { SafePipe } from './pipes/safe.pipe';
+import { PhonePipe } from './pipes/phone.pipe';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   url: '/arquivo/upload',
@@ -130,7 +131,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     KeysPipe,
     ToogleComponent,
     FilterByPipe,
-    SafePipe
+    SafePipe,
+    PhonePipe
   ],
   exports: [
     CommonModule,
@@ -193,7 +195,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     TruncateTextPipe,
     KeysPipe,
     FilterByPipe,
-    SafePipe
+    SafePipe,
+    PhonePipe
   ]
 })
 export class PluginsModule { }

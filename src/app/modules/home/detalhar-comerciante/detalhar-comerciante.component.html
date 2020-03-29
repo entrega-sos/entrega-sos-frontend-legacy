@@ -1,0 +1,75 @@
+<h1> {{ comerciante.descricao }} - {{ comerciante.tipo_negocio }} </h1>
+
+<hr />
+
+<h2>Contato</h2>
+<div class="row">
+  <div class="col-lg-6 col-sm-12">
+    Email: <strong>{{comerciante.email }}</strong>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Telefone: <a class="" href="tel:{{ comerciante.telefone }}"><strong>{{comerciante.telefone |  phone }}</strong></a>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Whatsapp: <a href="https://wa.me/55{{ comerciante.whatsapp }}?text=Conversa iniciada pelo Entrega SOS"
+      target="_blank"> <strong>{{comerciante.whatsapp | phone }}</strong></a>
+  </div>
+</div>
+
+<hr />
+
+<h2>Endereço</h2>
+<div class="row">
+  <div class="col-lg-6 col-sm-12">
+    CEP: <strong>{{ comerciante.cep }}</strong>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Endereço: <strong>{{ comerciante.endereco }}</strong>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Bairro: <strong>{{ comerciante.bairro }}</strong>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Cidade/UF: <strong>{{ comerciante.cidade }}/{{ comerciante.uf }}</strong>
+  </div>
+</div>
+
+<hr />
+
+<h2>Outras informações</h2>
+
+<div class="row">
+  <div class="col-lg-6 col-sm-12">
+    Meios de pagamento: <strong>{{ comerciante.meio_pagamento }}</strong>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Horários: <strong>{{ comerciante.dias_horarios }}</strong>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Aceita Delivery <strong>{{ comerciante.delivery? 'Sim': 'Não' }}</strong>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Instagram: <a href="{{comerciante.instagram}}" target="_blank"><strong>{{ comerciante.instagram }}</strong></a>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Facebook: <a href="{{comerciante.facebook}}" target="_blank"><strong>{{ comerciante.facebook }}</strong></a>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Site: <a href="{{comerciante.site}}" target="_blank"><strong>{{ comerciante.site }}</strong></a>
+  </div>
+
+  <div class="col-lg-6 col-sm-12">
+    Observações: <strong>{{ comerciante.obs }}</strong>
+  </div>
+  
+</div>

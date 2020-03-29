@@ -1,0 +1,9 @@
+<h1>Listando os comerciantes do bairro {{ bairro }}</h1>
+<hr />
+
+<ul>
+  <li *ngFor="let comercio of comerciantes">
+    <a [routerLink]="['/home','comerciante', comercio.id]"
+      routerLinkActive="router-link-active">{{ comercio.descricao }}</a>
+  </li>
+</ul>
