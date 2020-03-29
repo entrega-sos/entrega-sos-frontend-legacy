@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './modules/home/home.module';
 import { ComercianteModule } from './modules/cadastro/comerciante/comerciante.module';
+import { PedidoModule } from './modules/cadastro/pedido/pedido.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ComercianteModule } from './modules/cadastro/comerciante/comerciante.mo
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    ComercianteModule
+    ComercianteModule,
+    PedidoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
