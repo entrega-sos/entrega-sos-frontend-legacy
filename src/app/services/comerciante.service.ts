@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Comerciante, ComercianteResult } from '../modules/models/comerciante.model';
 import { environment } from 'src/environments/environment';
 import * as faker from 'faker/locale/pt_BR';
-import { Bairros } from '../modules/models/bairro.mode';
+import { Bairros } from '../modules/models/bairro.model';
 
 @Injectable({
   providedIn: 'root'

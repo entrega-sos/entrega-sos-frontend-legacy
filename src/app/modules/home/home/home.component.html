@@ -5,3 +5,12 @@
 <button *ngIf="!isHome" (click)="goToHome()" class="btn link-home btn-info"><i class="fa fa-home"></i></button>
 
 <router-outlet></router-outlet>
+
+<hr/>
+
+<footer class="footer">
+  <div class="versao">
+    <b>Versão</b> {{ versao }}
+  </div>
+  <strong>Copyright © 2020 <a href="https://http://entregasos.herokuapp.com/">Entrega SOS</a>.</strong> Todos os direitos reservados.
+</footer>
