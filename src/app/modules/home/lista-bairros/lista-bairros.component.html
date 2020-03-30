@@ -1,5 +1,6 @@
-<h1>Selecione o seu bairro</h1>
-<hr/>
+<h2>Selecione o seu bairro</h2>
+
+<hr />
 <ul>
   <li *ngFor="let bairro of bairros.bairros">
     <a [routerLink]="['bairro', bairro]" routerLinkActive="router-link-active">{{ bairro }}</a>

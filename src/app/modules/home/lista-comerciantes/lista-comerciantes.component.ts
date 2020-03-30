@@ -38,4 +38,8 @@ export class ListaComerciantesComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe())
   }
+
+  voltar() {
+    window.history.back();
+  }
 }

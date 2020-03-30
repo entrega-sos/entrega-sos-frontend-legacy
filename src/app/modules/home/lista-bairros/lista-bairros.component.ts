@@ -27,4 +27,8 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(s => s.unsubscribe());
   }
 
+  voltar() {
+    window.history.back();
+  }
+
 }
