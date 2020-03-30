@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './modules/home/home.module';
 import { ComercianteModule } from './modules/cadastro/comerciante/comerciante.module';
 import { PedidoModule } from './modules/cadastro/pedido/pedido.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { PedidoModule } from './modules/cadastro/pedido/pedido.module';
     AppRoutingModule,
     HomeModule,
     ComercianteModule,
-    PedidoModule
+    PedidoModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
