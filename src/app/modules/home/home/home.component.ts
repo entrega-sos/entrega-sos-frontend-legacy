@@ -5,6 +5,7 @@ import { Bairros } from '../../models/bairro.mode';
 import { Subscription } from 'rxjs';
 import { ComercianteService } from 'src/app/services/comerciante.service';
 import { ComercianteResult } from '../../models/comerciante.model';
+import { PwaService } from 'src/app/services/pwa.service';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     items: []
   };
 
-  constructor(private bairrosService: BairrosService,
+  constructor(
+    private Pwa: PwaService,
+    private bairrosService: BairrosService,
     private comercianteService: ComercianteService) { }
 
   ngOnInit(): void {
@@ -32,7 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     // Carrega do cache primeiro...
     this.data.items = this.comercianteService.loadFromCache() || [];
-    
+
     // Depois carrega do serviço, atualizando o cache
     this.comercianteService.loadAndSave().then(data => this.data.items = data)
       .catch(error => console.error(error));
