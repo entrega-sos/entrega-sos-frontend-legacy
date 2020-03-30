@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start-dev": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "build-prod": "ng build --prod",
+    "postinstall": "ng build --aot -prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -21,14 +23,17 @@
     "@angular/platform-browser-dynamic": "~9.0.7",
     "@angular/router": "~9.0.7",
     "angular2-text-mask": "^9.0.0",
+    "express": "^4.17.1",
     "faker": "^4.1.0",
     "libphonenumber-js": "^1.7.48",
     "ngx-dropzone-wrapper": "^9.0.0",
+    "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "sweetalert2": "^9.10.3",
     "text-mask-addons": "^3.8.0",
     "text-mask-core": "^5.1.2",
     "tslib": "^1.10.0",
+    "typescript": "~3.7.5",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
@@ -41,6 +46,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.3.0",
@@ -50,7 +56,10 @@
     "karma-jasmine-html-reporter": "^1.4.2",
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
-    "tslint": "~5.18.0",
-    "typescript": "~3.7.5"
+    "tslint": "~5.18.0"
+  },
+  "engines": {
+    "node": "6.11.0",
+    "npm": "3.10.10"
   }
 }
