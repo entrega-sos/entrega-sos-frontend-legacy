@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Bairros } from '../../models/bairro.mode';
+import { Bairros } from '../../models/bairro.model';
 import { Subscription } from 'rxjs';
 import { BairrosService } from 'src/app/services/bairros.service';
 
@@ -17,10 +17,11 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
   constructor(private bairrosService: BairrosService) { }
 
   ngOnInit(): void {
-    this.subscriptions.push(
-      this.bairrosService.bairros()
-        .subscribe(result => this.bairros = result, error => console.error(error))
-    );
+    this.bairros = this.bairrosService.getLocal();
+
+    this.bairrosService.loadAndSave()
+      .then(bairros => this.bairros = bairros)
+      .catch(error => console.error(error));
   }
 
   ngOnDestroy(): void {
