@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { ComercianteService } from 'src/app/services/comerciante.service';
 import { ComercianteResult } from '../../models/comerciante.model';
 import { PwaService } from 'src/app/services/pwa.service';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,20 +19,31 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
+  public isHome = true;
+
   public data: ComercianteResult = {
     items: []
   };
 
   constructor(
-    private Pwa: PwaService,
     private bairrosService: BairrosService,
-    private comercianteService: ComercianteService) { }
+    private comercianteService: ComercianteService,
+    private router: Router,
+    private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.subscriptions.push(
       this.bairrosService.bairros()
         .subscribe(result => this.bairros = result, error => console.error(error))
     );
+
+    this.isHome = this.router.routerState.snapshot.url == '/home'
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.isHome = this.router.routerState.snapshot.url == '/home'
+      }
+    });
 
     // Carrega do cache primeiro...
     this.data.items = this.comercianteService.loadFromCache() || [];
@@ -49,5 +61,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(s => s.unsubscribe());
+  }
+
+  voltar() {
+    window.history.back();
+  }
+
+  goToHome() {
+    this.router.navigate(['/home'])
   }
 }

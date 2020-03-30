@@ -1,2 +1,7 @@
-<button class="btn btn-lg">Instalar</button>
+<h1>Entrega SOS</h1>
+
+<button *ngIf="!isHome" (click)="voltar()" class="btn link-voltar btn-success"><i class="fa fa-history"></i></button>
+
+<button *ngIf="!isHome" (click)="goToHome()" class="btn link-home btn-info"><i class="fa fa-home"></i></button>
+
 <router-outlet></router-outlet>

@@ -33,4 +33,7 @@ export class DetalharComercianteComponent implements OnInit {
     }))
   }
 
+  voltar() {
+    window.history.back();
+  }
 }
