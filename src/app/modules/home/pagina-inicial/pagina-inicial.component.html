@@ -1,0 +1,22 @@
+<div class="home-block">
+  <div class="home-text">
+    <h1>Entrega SOS</h1>
+    <p>Este site tem como objetivo conectar pequenos, médios e grandes estabelecimentos aos clientes, possibilitando o
+      serviço de entrega para todo e qualquer cliente</p>
+  </div>
+
+  <div class="home-image">
+    <img class="logo-large" src="assets/images/motoqueiro.svg" />
+  </div>
+
+  <div class="home-buttons">
+    <a [routerLink]="['bairros']" routerLinkActive="router-link-active"
+      class="button-home button-consultar button-dark"><i class="fas fa-search"></i>
+      Consultar
+      Estabelecimentos</a>
+    <a [routerLink]="['comerciante/novo']" routerLinkActive="router-link-active"
+      class="button-home button-cadastrar button-brigth"><i class="fas fa-plus-circle"></i> Cadastrar meu
+      estabelecimento</a>
+  </div>
+
+</div>
