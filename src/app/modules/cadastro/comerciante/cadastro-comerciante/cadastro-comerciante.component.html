@@ -4,66 +4,95 @@
   <!-- Default box -->
 
   <div class="card">
+    <form #formComerciante="ngForm" (ngSubmit)="onSubmit()">
     <div class="card-header">
       <h3 class="card-title">Cadastro de comerciante</h3>
     </div>
     <div class="card-body">
       <div class="row">
         <div class="col-sm-6">
-          <input-group [(ngModel)]="comerciante.descricao" label="Nome / Fantasia da Empresa"></input-group>
+          <input-group [(ngModel)]="comerciante.descricao" name="descricao" #descricao="ngModel" label="Nome / Fantasia da Empresa"></input-group>
         </div>
 
         <div class="col-sm-6">
-          <input-group [(ngModel)]="comerciante.whatsapp" label="Telefone / WhatsApp" type="mobile-phone"></input-group>
+          <input-group [(ngModel)]="comerciante.whatsapp" name="whatsapp"  #whatsapp="ngModel" label="Telefone / WhatsApp" type="mobile-phone"></input-group>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-sm-3">
-          <input-group [(ngModel)]="comerciante.cep" [debounce]="300" (onDebounce)="buscarEndereco()" id="cep"
-            label="CEP" type="cep"></input-group>
-        </div>
-
-        <div class="col-sm-4">
-          <input-group [(ngModel)]="comerciante.endereco" label="Endereço"></input-group>
-        </div>
-
-        <div class="col-sm-1">
-          <select-group [(ngModel)]="comerciante.uf" label="UF"></select-group>
-        </div>
-
-        <div class="col-sm-4">
-          <input-group [(ngModel)]="comerciante.cidade" label="Cidade"></input-group>
-        </div>
-      </div>
-
       <div class="row">
         <div class="col-sm-4">
-          <select-group label="Tipo de Negócio"></select-group>
+          <label>Faz entrega?</label>
+          <select class="browser-default custom-select" name="delivery"   label="Faz entrega?" [(ngModel)]="comerciante.delivery" >
+            <option [ngValue]="true">Sim</option>
+            <option [ngValue]="false">Não</option>       
+           </select>
         </div>
-
         <div class="col-sm-4">
-          <input-group label="Instagram"></input-group>
+          <input-group [(ngModel)]="comerciante.usuario" name="usuario"  #usuario="ngModel" label="Usuário" type="text"></input-group>
         </div>
-
         <div class="col-sm-4">
-          <input-group label="Facebook"></input-group>
+          <input-group [(ngModel)]="comerciante.senha" name="senha" #senha="ngModel" label="Senha" type="password"></input-group>
         </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-sm-4">
-          <input-group [(ngModel)]="comerciante.senha" label="Senha" type="password"></input-group>
-        </div>
+       
 
         <div class="col-sm-4">
           <!-- <input-group [(ngModel)]="comerciante.confirmacaoSenha" label="Confirmação da senha" type="password">
           </input-group> -->
         </div>
       </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <input-group [(ngModel)]="comerciante.cep" name="cep" #cep="ngModel" [debounce]="300" (onDebounce)="buscarEndereco()" id="cep"
+            label="CEP" type="cep"></input-group>
+        </div>
 
-    </div>
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.endereco" name="endereco" #endereco="ngModel" label="Endereço"></input-group>
+        </div>
+
+        <div class="col-sm-1">
+          <input-group [(ngModel)]="comerciante.uf" name="uf" #uf="ngModel" label="UF"></input-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.cidade" name="cidade" #cidade="ngModel" label="Cidade"></input-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.tipo_negocio" name="tipo_negocio" #tipo_negocio="ngModel" label="Tipo de Negócio"></input-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.instagram" name="instagram" #instagram="ngModel" label="Instagram"></input-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.facebook" name="facebook" #facebook="ngModel" label="Facebook"></input-group>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.dias_horarios" name="dias_horarios" #dias_horarios="ngModel" label="Dias e horários"></input-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.obs" name="obs"  #obg="ngModel" label="Observação"></input-group>
+        </div>
+
+        <div class="col-sm-4">
+          <input-group [(ngModel)]="comerciante.site" name="site"  #site="ngModel" label="Site"></input-group>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <label>Formas de pagamento</label>
+        <select class="browser-default custom-select" name="meio_pagamento"  #meio_pagamento="ngModel" [(ngModel)]="comerciante.meio_pagamento" multiple>
+          <option value="dinheiro">Dinheiro</option>
+          <option value="credito">Crédito</option>  
+          <option value="debito">Débito</option>     
+         </select>
+      </div>
+  </div>
     <!-- /.card-body -->
     <div class="card-footer">
       <div class="row">
@@ -71,10 +100,15 @@
           <botao-voltar></botao-voltar>
         </div>
         <div class="col-sm-3">
-          <botao-salvar></botao-salvar>
+         
+          <button type="submit" class="btn btn-primary"
+   > <botao-salvar></botao-salvar></button>
         </div>
+      
       </div>
+    
     </div>
+    </form>
     <!-- /.card-footer-->
   </div>
   <!-- /.card -->

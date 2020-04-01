@@ -15,7 +15,13 @@ export class CadastroComercianteComponent implements OnInit, OnDestroy {
   comerciante: Comerciante = new Comerciante()
 
   subscriptions: Subscription[] = []
-
+  pagamentos = [
+    {id: 'dinheiro', name: "Dinheiro"},
+    {id: 'credito', name: "Crédito"},
+    {id: 'debito', name: "Débito"}
+   
+  ];
+ selectedValue = null;
   constructor(private comercianteService: ComercianteService) { }
 
   ngOnInit(): void { }
@@ -25,13 +31,22 @@ export class CadastroComercianteComponent implements OnInit, OnDestroy {
     if (this.comerciante.cep && this.comerciante.cep.length >= 9)
       this.comercianteService.endereco(this.comerciante.cep)
         .subscribe(endereco => {
+          console.log(endereco)
           this.comerciante.endereco = `${endereco.logradouro} ${endereco.complemento}`
           this.comerciante.cidade = endereco.localidade
           this.comerciante.bairro = endereco.bairro
           this.comerciante.uf = endereco.uf
         }, error => console.error)
   }
-
+  onSubmit() {
+    console.log(this.comerciante);
+this.comercianteService.create(this.comerciante).subscribe(data=>{
+  if(!data){
+    console.log("deu erro")
+  }
+})
+   
+  }
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe())
   }
