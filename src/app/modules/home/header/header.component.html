@@ -2,7 +2,18 @@
   <img src="assets/images/logo.svg" />
 </div>
 
-<div class="second-top-bar">
-  <a (click)="goToHome()" class="home"><i class="fas fa-home"></i></a>
-  <a (click)="voltar()" class="back"><i class="fas fa-undo"></i></a>
+<div class="second-top-bar row">
+  <div class="col-4">
+    <a (click)="goToHome()" class="home"><img src="assets/images/home-icon.svg" /></a>
+  </div>
+
+  <div class="col-4">
+    <span class="logo">
+      <img class="" src="assets/images/logo.svg" />
+    </span>
+  </div>
+
+  <div class="col-4">
+    <a (click)="voltar()" class="back"><img src="assets/images/back-icon.svg" /></a>
+  </div>
 </div>

@@ -5,7 +5,7 @@
 <div class="card-comerciante">
 
   <div class="row no-padding">
-    <div class="col-lg-6 col-sm-12">
+    <div class="col-lg-6 col-sm-12 no-padding">
       <h3><i class="arrow"></i> Contato</h3>
 
       <div class="row">
@@ -25,10 +25,10 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-6 col-sm-12">
+    <div class="col-lg-6 col-sm-12 no-padding">
       <h3><i class="arrow"></i> Entrega</h3>
 
-      <div class="row">
+      <div class="row no-padding">
         <div class="col-lg-6 col-sm-12">
           <div class="title-pedido-giross">Entrega realizada pela <img src="assets/images/logo-giross.svg" /></div>
 
@@ -81,19 +81,33 @@
       Meios de pagamento: <strong>{{ comerciante.meio_pagamento }}</strong>
     </div>
 
-    <div class="col-lg-6 col-sm-12">
-      Horários: <strong>{{ comerciante.dias_horarios }}</strong>
-    </div>
 
     <div class="col-lg-6 col-sm-12">
-      Aceita Delivery <strong>{{ comerciante.delivery? 'Sim': 'Não' }}</strong>
+      Aceita Delivery: <strong class="text-orange">{{ comerciante.delivery? 'Sim': 'Não' }}</strong>
     </div>
+
+
 
     <div class="col-lg-6 col-sm-12">
       Observações: <strong>{{ comerciante.obs }}</strong>
     </div>
 
     <div class="col-lg-6 col-sm-12">
+      Horários: <strong>{{ comerciante.dias_horarios }}</strong>
+    </div>
+
+
+    <div class="col-lg-6 col-sm-12">
+      Redes sociais:
+
+      <div class="social-icons">
+        <a href="{{comerciante.facebook}}" target="_blank"><img src="assets/images/logo-facebook.svg" /> </a>
+        <a href="{{comerciante.instagram}}" target="_blank"><img src="assets/images/logo-instagram.svg" /> </a>
+        <a href="{{comerciante.site}}" target="_blank"><img src="assets/images/logo-site.svg" /> </a>
+      </div>
+    </div>
+    
+    <!-- <div class="col-lg-6 col-sm-12">
       Instagram: <a href="{{comerciante.instagram}}" target="_blank"><strong>{{ comerciante.instagram }}</strong></a>
     </div>
 
@@ -103,7 +117,6 @@
 
     <div class="col-lg-6 col-sm-12">
       Site: <a href="{{comerciante.site}}" target="_blank"><strong>{{ comerciante.site }}</strong></a>
-    </div>
-
+    </div> -->
   </div>
 </div>

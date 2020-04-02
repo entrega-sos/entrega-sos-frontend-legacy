@@ -1,6 +1,6 @@
 @media (min-width: 600px) {
   .first-top-bar {
-    display: block;
+    display: none;
 
     img {
       margin-left: 90px;
@@ -8,8 +8,12 @@
     }
   }
 
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   .second-top-bar {
-    display: block;
     width: 100%;
     height: 70px;
     background-color: #F8930D;
@@ -19,32 +23,24 @@
       color: #ffffff;
     }
 
-    a.localization {
-      position: relative;
-      top: 15px;
-      left: 90px;
-      font-size: 14px;
-
-      i {
-        font-size: 30px;
-        margin-right: 10px;
-        position: relative;
-        top: 5px;
-      }
-    }
-
     a.home {
-      margin-top: 12px;
-      margin-left: 10px;
-      float: left;
-      font-size: 30px;
+      display: block;
+      text-align: left;
+      margin-top: 20px;
+      margin-left: 20px;
     }
 
     a.back {
-      margin-top: 15px;
-      margin-right: 10px;
-      float: right;
-      font-size: 30px;
+      display: block;
+      text-align: right;
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+
+    .logo {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
     }
   }
 }
@@ -57,13 +53,18 @@
     img {
       margin-left: auto;
       margin-right: auto;
-      display: block;
+      // display: block;
       width: 120px;
     }
   }
 
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   .second-top-bar {
-    display: block;
+    // display: block;
     height: 50px;
     background-color: #F8930D;
 
@@ -72,18 +73,28 @@
       color: #ffffff;
     }
 
+    .col-4 {
+      display: block;
+    }
+
     a.home {
-      margin-top: 5px;
+      display: block;
+      text-align: left;
+      margin-top: 10px;
       margin-left: 10px;
-      float: left;
-      font-size: 30px;
     }
 
     a.back {
-      margin-top: 5px;
+      display: block;
+      text-align: right;
+      margin-top: 10px;
       margin-right: 10px;
-      float: right;
-      font-size: 30px;
+    }
+
+    .logo {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
     }
   }
 }
