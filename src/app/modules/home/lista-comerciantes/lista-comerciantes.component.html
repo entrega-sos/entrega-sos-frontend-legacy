@@ -1,9 +1,10 @@
-<h2>Listando os comerciantes do bairro {{ bairro }}</h2>
-<hr />
+<h2>Estabelecimentos</h2>
+<h3>> {{ bairro }}</h3>
+<p>Você selecionou <span class="bairro-selecionado">{{ bairro }}</span>, selecione o estabelecimento que deseja ver detalhes</p>
 
-<ul>
-  <li *ngFor="let comercio of comerciantes">
-    <a [routerLink]="['/home','comerciante', comercio.id]"
-      routerLinkActive="router-link-active">{{ comercio.descricao }}</a>
-  </li>
-</ul>
+<div class="row">
+  <div class="col-sm-12 col-lg-4" *ngFor="let comercio of comerciantes">
+    <a class="button-comerciantes button-brigth" [routerLink]="['/home','comerciante', comercio.id]"
+      routerLinkActive="router-link-active"><i class="fas fa-location-arrow"></i> {{ comercio.descricao }}</a>
+  </div>
+</div>

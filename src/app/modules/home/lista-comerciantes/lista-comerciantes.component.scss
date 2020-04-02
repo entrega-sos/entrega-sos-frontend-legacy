@@ -1,0 +1,95 @@
+.row {
+  margin: 0 !important;
+}
+
+.bairro-selecionado {
+  font-weight: 600;
+  font-style: italic;
+}
+
+@media(min-width: 600px) {
+  .margin {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  h2 {
+    @extend .margin;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  h3 {
+    @extend .margin;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #F8930D;
+  }
+
+  p {
+    @extend .margin;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  a.button-comerciantes {
+    @extend .margin;
+    margin-top: 10px;
+    display: block;
+
+  }
+}
+
+@media(max-width: 599px) {
+  .margin-small {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  h2 {
+    @extend .margin-small;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  h3 {
+    @extend .margin-small;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 18px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #F8930D;
+  }
+
+  p {
+    @extend .margin-small;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  a.button-comerciantes {
+    @extend .margin-small;
+    margin-top: 10px;
+    display: block;
+  }
+}
