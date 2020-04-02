@@ -10,10 +10,11 @@ import { DetalharComercianteComponent } from './detalhar-comerciante/detalhar-co
 import { ListaBairrosComponent } from './lista-bairros/lista-bairros.component';
 import { HeaderComponent } from './header/header.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
+import { ListaTipoComercioComponent } from './lista-tipo-comercio/lista-tipo-comercio.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, ListaComerciantesComponent, ListaComerciantesPorBairroComponent, DetalharComercianteComponent, ListaBairrosComponent, HeaderComponent, PaginaInicialComponent],
+  declarations: [HomeComponent, ListaComerciantesComponent, ListaComerciantesPorBairroComponent, DetalharComercianteComponent, ListaBairrosComponent, HeaderComponent, PaginaInicialComponent, ListaTipoComercioComponent],
   imports: [
     CommonModule,
     PluginsModule,

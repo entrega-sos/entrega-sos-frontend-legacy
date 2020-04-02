@@ -1,0 +1,9 @@
+<h2>Tipo de comércio</h2>
+<p>Selecione o tipo de comércio que você está buscando</p>
+
+<div class="row">
+  <div class="col-sm-12 col-lg-4" *ngFor="let tipo of tipos">
+    <a class="button-bairro button-brigth" [routerLink]="['/','home','bairros', tipo.id]"
+      routerLinkActive="router-link-active"><i class="fas fa-location-arrow"></i> {{ tipo.nome }}</a>
+  </div>
+</div>
