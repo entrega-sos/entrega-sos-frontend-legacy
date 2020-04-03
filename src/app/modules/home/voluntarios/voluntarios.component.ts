@@ -14,6 +14,7 @@ export class VoluntariosComponent implements OnInit {
       {
         id: 1,
         nome: 'Giross',
+        ocupacao: 'Plataforma de compra',
         instagram: 'girossapp',
         foto: 'assets/images/logo-giross.svg',
         email: '',
@@ -28,6 +29,7 @@ export class VoluntariosComponent implements OnInit {
       {
         id: 2,
         nome: 'DevFSA',
+        ocupacao: 'Comunidade de Tecnologia',
         instagram: 'devfsa_',
         foto: 'assets/images/foto-devfsa.jpg',
         email: '',
@@ -65,7 +67,7 @@ export class VoluntariosComponent implements OnInit {
         nome: 'Walter Gandarella',
         ocupacao: 'Desenvolvedor Front-end',
         instagram: 'wgbn',
-        foto: '',
+        foto: 'assets/images/foto-walter.jpg',
         email: '',
         linkedin: '',
         github: ''
@@ -75,7 +77,7 @@ export class VoluntariosComponent implements OnInit {
         nome: 'Murilo Barbosa',
         ocupacao: 'Desenvolvedor Front-end',
         instagram: 'murilojava',
-        foto: '',
+        foto: 'assets/images/foto-murilo.jpg',
         email: '',
         linkedin: '',
         github: ''
@@ -85,7 +87,7 @@ export class VoluntariosComponent implements OnInit {
         nome: 'Nataly Costa',
         ocupacao: 'Designer',
         instagram: 'nataly_costa_design',
-        foto: '',
+        foto: 'assets/images/foto-nataly.jpg',
         email: '',
         linkedin: '',
         github: ''
@@ -95,17 +97,17 @@ export class VoluntariosComponent implements OnInit {
         nome: 'Odilon Santos',
         ocupacao: 'Advogado',
         instagram: 'odilonssantos',
-        foto: '',
-        email: '',
+        foto: 'assets/images/foto-odilon.jpg',
+        email: 'odilon@silvassilvaadvocacia.com',
         linkedin: '',
         github: ''
       },
       {
         id: 7,
         nome: 'Matheus Rios',
-        ocupacao: 'Infraestrutura',
+        ocupacao: 'Desenvolvedor Front-End',
         instagram: 'mattheusriios',
-        foto: '',
+        foto: 'assets/images/foto-matheus.jpg',
         email: '',
         linkedin: '',
         github: ''
