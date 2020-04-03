@@ -2,9 +2,15 @@
 <h3>> {{ tipoComercio.nome }} / {{ bairro }}</h3>
 <p>Você selecionou <span class="bairro-selecionado">{{ bairro }}</span>, selecione o estabelecimento que deseja ver detalhes</p>
 
-<div class="row">
+<div class="row" *ngIf="!showLoad else loading">
   <div class="col-sm-12 col-lg-4" *ngFor="let comercio of comerciantes">
     <a class="button-comerciantes button-brigth" [routerLink]="['/home','comerciante', comercio.id]"
       routerLinkActive="router-link-active"><i class="fas fa-location-arrow"></i> {{ comercio.descricao }}</a>
   </div>
 </div>
+
+<ng-template #loading>
+  <div class="p-6 text-center">
+    <i class="fa fa-spin fa-spinner font-2x"></i>
+  </div>
+</ng-template>

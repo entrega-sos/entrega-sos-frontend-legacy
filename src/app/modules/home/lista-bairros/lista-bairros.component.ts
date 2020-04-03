@@ -14,9 +14,9 @@ import { ComercianteService } from 'src/app/services/comerciante.service';
 export class ListaBairrosComponent implements OnInit, OnDestroy {
 
 
-  public tipoComercio: Partial<TipoComercio> = {};
-
-  public bairros = [];
+  tipoComercio: Partial<TipoComercio> = {};
+  showLoad = false;
+  bairros: Set<any> = new Set<any>();
 
   private subscriptions: Subscription[] = [];
 
@@ -28,10 +28,11 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.route.params.subscribe(params => {
-      this.tipoComercio = tiposComercio.find(t => t.id === params['tipo-comercio'])
+      this.tipoComercio = tiposComercio.find(t => t.id === params['tipo-comercio']);
+      this.loadBairros();
     });
 
-    this.bairros = this.comercianteService
+    /*this.bairros = this.comercianteService
       .loadFromCache()
       .filter(c => c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase())
       .map(c => c.bairro)
@@ -46,11 +47,23 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
           .filter(c => c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase())
           .map(c => c.bairro)
           .sort((a, b) => a > b ? 1 : (a < b ? -1 : 0))
-      }).catch(error => console.log(error));
+      }).catch(error => console.log(error));*/
   }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(s => s.unsubscribe());
+  }
+
+  private loadBairros() {
+    this.showLoad = true;
+    this.comercianteService.list(1, 20000).subscribe(result => {
+      this.showLoad = false;
+      if (result.items instanceof Array) {
+        for (const comerciante of result.items.filter(com => com.tipo_negocio === this.tipoComercio.id || com.tipo_negocio === this.tipoComercio.nome)) {
+          this.bairros.add(comerciante.bairro);
+        }
+      }
+    }, err => this.showLoad = false);
   }
 
   voltar() {

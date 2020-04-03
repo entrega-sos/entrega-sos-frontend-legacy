@@ -14,9 +14,9 @@ export class ListaComerciantesComponent implements OnInit, OnDestroy {
 
   bairro = '';
   tipoComercio: Partial<TipoComercio> = {};
-
+  showLoad = false;
   subscriptions: Subscription[] = [];
-  comerciantes: Comerciante[] = [];
+  comerciantes: Partial<Comerciante>[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -25,8 +25,12 @@ export class ListaComerciantesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
-    this.subscriptions.push(this.route.params.subscribe((data: any) => {
+    this.route.params.subscribe(params => {
+      this.tipoComercio = tiposComercio.find(t => t.id === params['tipo-comercio']);
+      this.bairro = params['bairro'];
+      this.loadComerciantes();
+    });
+    /*this.subscriptions.push(this.route.params.subscribe((data: any) => {
       this.bairro = data.bairro || '';
       this.tipoComercio = tiposComercio.find(t => t.id === data['tipo-comercio']);
 
@@ -39,11 +43,23 @@ export class ListaComerciantesComponent implements OnInit, OnDestroy {
         .then((data: any[]) => {
           this.comerciantes = data.filter(c => c.bairro === this.bairro);
         }).catch(error => console.log(error));
-    }));
+    }));*/
   }
 
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe());
+  }
+
+  private loadComerciantes() {
+    this.showLoad = true;
+    this.subscriptions.push(
+      this.comercianteService.list(1, 20000).subscribe(result => {
+        this.showLoad = false;
+        if (result.items instanceof Array) {
+          this.comerciantes = result.items.filter(com => com.bairro === this.bairro && (com.tipo_negocio === this.tipoComercio.id || com.tipo_negocio === this.tipoComercio.nome));
+        }
+      }, er => this.showLoad = false)
+    );
   }
 
   voltar() {

@@ -1,9 +1,15 @@
 <h2>{{ tipoComercio?.nome }}</h2>
 <p>Selecione o seu bairro para encontrar estabelecimentos próximos a você que entregem suas compras</p>
 
-<div class="row">
+<div class="row" *ngIf="!showLoad else loading">
   <div class="col-sm-12 col-lg-4" *ngFor="let bairro of bairros">
-    <a class="button-bairro button-brigth" [routerLink]="[bairro]"
+    <a class="button-bairro button-brigth" routerLink="/home/bairros/{{tipoComercio.id}}/{{bairro}}"
       routerLinkActive="router-link-active"><i class="fas fa-location-arrow"></i> {{ bairro }}</a>
   </div>
 </div>
+
+<ng-template #loading>
+  <div class="p-6 text-center">
+    <i class="fa fa-spin fa-spinner font-2x"></i>
+  </div>
+</ng-template>
