@@ -15,23 +15,27 @@ export class VoluntariosComponent implements OnInit {
         id: 1,
         nome: 'Giross',
         instagram: 'girossapp',
-        foto: '',
+        foto: 'assets/images/logo-giross.svg',
         email: '',
         linkedin: '',
         github: '',
-        twitter: '',
-        site: ''
+        twitter: 'giross',
+        site: 'http://www.giross.com.br/',
+        googlePlay: 'https://play.google.com/store/apps/details?id=com.by4java.giross&hl=pt_BR',
+        appleStore: 'https://apps.apple.com/br/app/giross/id1481633932',
+        whatsapp: '5577999789680'
       },
       {
         id: 2,
         nome: 'DevFSA',
         instagram: 'devfsa_',
-        foto: '',
+        foto: 'assets/images/foto-devfsa.jpg',
         email: '',
         linkedin: '',
-        github: '',
+        github: 'devfsa',
         twitter: '',
-        site: ''
+        site: 'https://devfsa.com.br/',
+        telegram: 'devfsa'
       }
     ],
     "voluntarios": [
@@ -40,10 +44,10 @@ export class VoluntariosComponent implements OnInit {
         nome: 'Eduardo Daltro',
         ocupacao: 'Idealizador e Desenvolvedor Back-end',
         instagram: 'daltroedu',
-        foto: '',
+        foto: 'assets/images/foto-eduardo.jpg',
         email: '',
-        linkedin: '',
-        github: ''
+        linkedin: 'daltroedu',
+        github: 'daltroedu'
       },
       {
         id: 2,
@@ -54,8 +58,7 @@ export class VoluntariosComponent implements OnInit {
         email: 'orlando.burli@gmail.com',
         linkedin: 'orlando-burli-junior',
         github: 'orlandoburli',
-        twitter: 'orlandoburli',
-        site: 'http://orlandoburli.com.br'
+        twitter: 'orlandoburli'
       },
       {
         id: 3,

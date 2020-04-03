@@ -1,0 +1,21 @@
+version: 2.1
+jobs:
+  build-and-publish:
+    machine:
+      image: circleci/classic:latest
+    steps:
+      - checkout
+      - run: |
+          echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+      - run: docker build -t entregasos/frontend:$CIRCLE_BUILD_NUM -t entregasos/frontend:latest .
+      - run: docker push entregasos/frontend:$CIRCLE_BUILD_NUM
+      - run: docker push entregasos/frontend:latest
+
+workflows:
+  build-deploy:
+    jobs:
+      - build-and-publish:
+          filters:
+            branches:
+              only:
+                - master 

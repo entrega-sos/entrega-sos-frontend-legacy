@@ -53,6 +53,7 @@ import { SafePipe } from './pipes/safe.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
 import {HeaderComponent} from './header/header.component';
 import { NumberOnlyPipe } from './pipes/number-only.pipe';
+import { CepPipe } from './pipes/cep.pipe';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   url: '/arquivo/upload',
@@ -135,7 +136,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     FilterByPipe,
     SafePipe,
     PhonePipe,
-    NumberOnlyPipe
+    NumberOnlyPipe,
+    CepPipe
   ],
   exports: [
     CommonModule,
@@ -200,7 +202,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     FilterByPipe,
     SafePipe,
     PhonePipe,
-    NumberOnlyPipe
+    NumberOnlyPipe,
+    CepPipe
   ]
 })
 export class PluginsModule { }

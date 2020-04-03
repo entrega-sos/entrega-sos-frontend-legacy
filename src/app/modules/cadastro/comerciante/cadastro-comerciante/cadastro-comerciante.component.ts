@@ -23,7 +23,7 @@ export class CadastroComercianteComponent implements OnInit, OnDestroy {
   ];
   tipos = tiposComercio;
   showLoading = false;
-  acceptTerms = false;
+  acceptTerms = true;
 
   constructor(private comercianteService: ComercianteService, public location: Location) {
   }
@@ -50,7 +50,7 @@ export class CadastroComercianteComponent implements OnInit, OnDestroy {
     const comerciante = {
       ...this.comerciante,
       cep: this.comerciante.cep.replace(/[^0-9]/g, ''),
-      meio_pagamento: this.pagamentos.filter(p => p.check).map(p => p.id)
+      meio_pagamento: this.pagamentos.filter(p => p.check).map(p => p.name)
     };
     this.showLoading = true;
     this.comercianteService.create(comerciante).subscribe(data => {
