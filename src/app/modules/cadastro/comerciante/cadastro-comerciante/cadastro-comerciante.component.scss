@@ -1,0 +1,20 @@
+.checks {
+  display: flex;
+  align-items: center;
+  label {
+    display: flex;
+    align-items: center;
+    width: calc(95% / 3);
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    margin-right: .3rem;
+    min-height: 38px;
+    font-weight: normal;
+    padding-left: .5rem;
+    font-size: .95rem;
+    cursor: pointer;
+    input {
+      margin-right: .5rem;
+    }
+  }
+}

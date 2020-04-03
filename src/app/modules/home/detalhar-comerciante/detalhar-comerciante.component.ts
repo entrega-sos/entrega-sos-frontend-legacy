@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Comerciante } from '../../models/comerciante.model';
-import { ActivatedRoute } from '@angular/router';
-import { ComercianteService } from 'src/app/services/comerciante.service';
+import {Component, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {Comerciante} from '../../models/comerciante.model';
+import {ActivatedRoute} from '@angular/router';
+import {ComercianteService} from 'src/app/services/comerciante.service';
 
 @Component({
   selector: 'app-detalhar-comerciante',
@@ -11,8 +11,8 @@ import { ComercianteService } from 'src/app/services/comerciante.service';
 })
 export class DetalharComercianteComponent implements OnInit {
 
-  subscriptions: Subscription[] = []
-  comerciante: Comerciante = {}
+  subscriptions: Subscription[] = [];
+  comerciante: Partial<Comerciante> = {};
   idComerciante: string = '';
 
   constructor(
@@ -24,13 +24,15 @@ export class DetalharComercianteComponent implements OnInit {
     this.subscriptions.push(this.route.params.subscribe(data => {
       this.idComerciante = data['comerciante'];
 
-      this.comerciante = this.comercianteService.loadFromCache().find(c => c.id == this.idComerciante);
+      this.comerciante = this.comercianteService.loadFromCache().find(c => c.id === this.idComerciante);
 
-      this.subscriptions.push(
-        this.comercianteService.get(this.comerciante.usuario)
-          .subscribe(c => this.comerciante = c, (error) => console.error(error))
-      )
-    }))
+      if (this.comerciante) {
+        this.subscriptions.push(
+          this.comercianteService.get(this.comerciante.usuario)
+            .subscribe(c => this.comerciante = c, (error) => console.error(error))
+        );
+      }
+    }));
   }
 
   voltar() {

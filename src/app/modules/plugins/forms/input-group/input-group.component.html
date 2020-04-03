@@ -1,5 +1,5 @@
 <div class="form-group m-form__group">
-  <label *ngIf="label" class="{{ classLabel }}" for="internal_{{ componentId }} ">
+  <label *ngIf="label" class="{{ classLabel }}" [attr.for]="'internal_'+componentId">
     {{ label }}
 
     <a *ngIf="obrigatorio" class="a-tooltip a-obrigatorio" tabindex="-1" data-toogle="tooltip" data-placement="top" title="Campo obrigatório" href="javascript:void(0)">

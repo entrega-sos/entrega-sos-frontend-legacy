@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public versao = '';
 
-  public data: ComercianteResult = {
+  public data: Partial<ComercianteResult> = {
     items: []
   };
 

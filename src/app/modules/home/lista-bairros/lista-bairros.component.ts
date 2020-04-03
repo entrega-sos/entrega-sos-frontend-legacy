@@ -14,7 +14,7 @@ import { ComercianteService } from 'src/app/services/comerciante.service';
 export class ListaBairrosComponent implements OnInit, OnDestroy {
 
 
-  public tipoComercio: TipoComercio = {};
+  public tipoComercio: Partial<TipoComercio> = {};
 
   public bairros = [];
 
