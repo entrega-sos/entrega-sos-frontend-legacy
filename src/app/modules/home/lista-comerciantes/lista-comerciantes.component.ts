@@ -1,9 +1,9 @@
-import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import {ActivatedRoute, RouteConfigLoadEnd} from '@angular/router';
-import {Subscription} from 'rxjs';
-import {tiposComercio, TipoComercio} from '../../models/tipo-comercio.model';
-import {ComercianteService} from 'src/app/services/comerciante.service';
-import {Comerciante} from '../../models/comerciante.model';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { ActivatedRoute, RouteConfigLoadEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { tiposComercio, TipoComercio } from '../../models/tipo-comercio.model';
+import { ComercianteService } from 'src/app/services/comerciante.service';
+import { Comerciante } from '../../models/comerciante.model';
 
 @Component({
   selector: 'app-lista-comerciantes',
@@ -16,7 +16,12 @@ export class ListaComerciantesComponent implements OnInit, OnDestroy {
   tipoComercio: Partial<TipoComercio> = {};
 
   subscriptions: Subscription[] = [];
+
   comerciantes: Comerciante[] = [];
+
+  filtroTipoNegocioBairro: (value: any, index: number, array: any[]) => unknown = c => c.bairro === this.bairro && (c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase() || c.tipo_negocio.toUpperCase() === this.tipoComercio.id.toUpperCase());
+
+  sortComercios = (a: Comerciante, b: Comerciante): 1 | -1 | 0 => a.descricao > b.descricao ? 1 : (a.descricao < b.descricao ? -1 : 0);
 
   constructor(
     private route: ActivatedRoute,
@@ -32,13 +37,14 @@ export class ListaComerciantesComponent implements OnInit, OnDestroy {
 
       this.comerciantes = this.comercianteService
         .loadFromCache()
-        .filter(c => c.bairro === this.bairro && c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase())
-        .sort((a, b) => a.descricao > b.descricao ? 1 : (a.descricao < b.descricao ? -1 : 0));
+        .filter(this.filtroTipoNegocioBairro)
+        .sort(this.sortComercios);
 
       this.comercianteService.loadAndSave()
-        .then((data: any[]) => {
-          this.comerciantes = data.filter(c => c.bairro === this.bairro);
-        }).catch(error => console.log(error));
+        .then((data: Comerciante[]) => this.comerciantes = data
+          .filter(this.filtroTipoNegocioBairro)
+          .sort(this.sortComercios)
+        ).catch(error => console.log(error));
     }));
   }
 

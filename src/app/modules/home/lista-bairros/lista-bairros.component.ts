@@ -20,6 +20,10 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
+  filtroTipoNegocio: (value: any, index: number, array: any[]) => unknown = c => c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase() || c.tipo_negocio.toUpperCase() === this.tipoComercio.id.toUpperCase();
+
+  sortBairros: (a: any, b: any) => number = (a, b) => a > b ? 1 : (a < b ? -1 : 0);
+
   constructor(
     private bairrosService: BairrosService,
     private comercianteService: ComercianteService,
@@ -33,20 +37,16 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
 
     this.bairros = this.comercianteService
       .loadFromCache()
-      .filter(c => c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase())
+      .filter(this.filtroTipoNegocio)
       .map(c => c.bairro)
-      .sort((a, b) => a > b ? 1 : (a < b ? -1 : 0))
-
-    console.log(this.bairros.length)
-    console.log(this.comercianteService.loadFromCache().length)
+      .sort(this.sortBairros)
 
     this.comercianteService.loadAndSave()
-      .then(data => {
-        this.bairros = data
-          .filter(c => c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase())
-          .map(c => c.bairro)
-          .sort((a, b) => a > b ? 1 : (a < b ? -1 : 0))
-      }).catch(error => console.log(error));
+      .then(data => this.bairros = data
+        .filter(this.filtroTipoNegocio)
+        .map(c => c.bairro)
+        .sort(this.sortBairros)
+      ).catch(error => console.log(error));
   }
 
   ngOnDestroy(): void {
