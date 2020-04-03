@@ -16,7 +16,7 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
 
   tipoComercio: Partial<TipoComercio> = {};
   showLoad = false;
-  bairros: Set<any> = new Set<any>();
+  bairros = [];
 
   private subscriptions: Subscription[] = [];
 
@@ -33,15 +33,20 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
 
     this.route.params.subscribe(params => {
       this.tipoComercio = tiposComercio.find(t => t.id === params['tipo-comercio']);
-      this.loadBairros();
-    });
 
-    this.comercianteService.loadAndSave()
-      .then(data => this.bairros = data
+      this.bairros = this.comercianteService
+        .loadFromCache()
         .filter(this.filtroTipoNegocio)
         .map(c => c.bairro)
         .sort(this.sortBairros)
-      ).catch(error => console.log(error));
+
+      this.comercianteService.loadAndSave()
+        .then(data => this.bairros = data
+          .filter(this.filtroTipoNegocio)
+          .map(c => c.bairro)
+          .sort(this.sortBairros)
+        ).catch(error => console.log(error));
+    });
   }
 
   ngOnDestroy(): void {
