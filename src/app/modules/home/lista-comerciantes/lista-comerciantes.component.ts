@@ -14,7 +14,7 @@ export class ListaComerciantesComponent implements OnInit, OnDestroy {
 
   bairro = '';
   tipoComercio: Partial<TipoComercio> = {};
-
+  showLoad = false;
   subscriptions: Subscription[] = [];
 
   comerciantes: Comerciante[] = [];
@@ -50,9 +50,5 @@ export class ListaComerciantesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe());
-  }
-
-  voltar() {
-    window.history.back();
   }
 }

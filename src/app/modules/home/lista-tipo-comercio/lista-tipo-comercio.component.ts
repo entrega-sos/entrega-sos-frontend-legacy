@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TipoComercio, tiposComercio } from '../../models/tipo-comercio.model';
+import {ComercianteService} from '../../../services/comerciante.service';
 
 @Component({
   selector: 'app-lista-tipo-comercio',
@@ -8,11 +9,19 @@ import { TipoComercio, tiposComercio } from '../../models/tipo-comercio.model';
 })
 export class ListaTipoComercioComponent implements OnInit {
 
-  public tipos: TipoComercio[] = []
+  tipos: any[] = [];
+  rawTipos = tiposComercio;
+  showLoad = false;
 
-  constructor() { }
+  constructor(private comercianteService: ComercianteService) { }
 
   ngOnInit(): void {
-    this.tipos = tiposComercio;
+    this.showLoad = true;
+    this.comercianteService.listWithQuery('group=tipo_negocio').subscribe((tipos: any) => {
+      this.showLoad = false;
+      for (const tipo of tipos.tipo_negocio) {
+        this.tipos.push(this.rawTipos.find(t => t.nome === tipo || t.id === tipo));
+      }
+    }, er => this.showLoad = false);
   }
 }
