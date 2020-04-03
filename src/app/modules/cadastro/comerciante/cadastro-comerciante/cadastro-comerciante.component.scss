@@ -18,3 +18,28 @@
     }
   }
 }
+.terms {
+  width: 100%;
+  max-width: 1024px;
+  margin: 2rem auto;
+
+  h2 {
+    margin: 1rem 0;
+  }
+
+  .content {
+    height: 100%;
+    max-height: 60vh;
+    overflow: auto;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem;
+  }
+
+  .buttons {
+    padding: 1rem;
+    button {
+      margin: 0 .5rem;
+    }
+  }
+}

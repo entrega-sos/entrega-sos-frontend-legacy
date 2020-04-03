@@ -14,10 +14,7 @@ declare var $: any;
 })
 export class CadastroComercianteComponent implements OnInit, OnDestroy {
 
-  comerciante: Partial<Comerciante> = {
-    delivery: true
-  };
-
+  comerciante: Partial<Comerciante> = { delivery: true };
   subscriptions: Subscription[] = [];
   pagamentos = [
     {id: 'dinheiro', name: 'Dinheiro', check: false},
@@ -26,6 +23,7 @@ export class CadastroComercianteComponent implements OnInit, OnDestroy {
   ];
   tipos = tiposComercio;
   showLoading = false;
+  acceptTerms = false;
 
   constructor(private comercianteService: ComercianteService, public location: Location) {
   }
