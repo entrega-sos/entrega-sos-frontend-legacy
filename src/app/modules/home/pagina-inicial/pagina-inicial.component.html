@@ -1,0 +1,22 @@
+<div class="home-block">
+  <div class="home-text">
+    <h1>Entrega SOS</h1>
+    <p>Aqui você encontra mercados, farmácias e outros estabelecimentos que entregam as compras na sua casa, e se eles
+      não puderem entregar, a <img src="assets/images/logo-giross.svg"/> pode fazer isso por você!</p>
+  </div>
+
+  <div class="home-image">
+    <img class="logo-large" src="assets/images/motoqueiro.svg" />
+  </div>
+
+  <div class="home-buttons">
+    <a [routerLink]="['tipo-comercio']" routerLinkActive="router-link-active"
+      class="button-home button-consultar button-dark"><i class="fas fa-search"></i>
+      Consultar
+      Estabelecimentos</a>
+    <a [routerLink]="['comerciante/novo']" routerLinkActive="router-link-active"
+      class="button-home button-cadastrar button-brigth"><i class="fas fa-plus-circle"></i> Cadastrar meu
+      estabelecimento</a>
+  </div>
+
+</div>

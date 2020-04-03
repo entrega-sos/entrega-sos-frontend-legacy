@@ -1,12 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { tiposComercio } from '../../models/tipo-comercio.model';
 import { BairrosService } from 'src/app/services/bairros.service';
-import { Bairros } from '../../models/bairro.mode';
+import { Bairros } from '../../models/bairro.model';
 import { Subscription } from 'rxjs';
 import { ComercianteService } from 'src/app/services/comerciante.service';
 import { ComercianteResult } from '../../models/comerciante.model';
-import { PwaService } from 'src/app/services/pwa.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -21,21 +20,19 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public isHome = true;
 
+  public versao = '';
+
   public data: ComercianteResult = {
     items: []
   };
 
   constructor(
-    private bairrosService: BairrosService,
     private comercianteService: ComercianteService,
-    private router: Router,
-    private activeRoute: ActivatedRoute) { }
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.subscriptions.push(
-      this.bairrosService.bairros()
-        .subscribe(result => this.bairros = result, error => console.error(error))
-    );
+
+    this.versao = environment.versao;
 
     this.isHome = this.router.routerState.snapshot.url == '/home'
 

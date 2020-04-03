@@ -1,8 +1,9 @@
-<h2>Selecione o seu bairro</h2>
+<h2>{{ tipoComercio?.nome }}</h2>
+<p>Selecione o seu bairro para encontrar estabelecimentos próximos a você que entregem suas compras</p>
 
-<hr />
-<ul>
-  <li *ngFor="let bairro of bairros.bairros">
-    <a [routerLink]="['bairro', bairro]" routerLinkActive="router-link-active">{{ bairro }}</a>
-  </li>
-</ul>
+<div class="row">
+  <div class="col-sm-12 col-lg-4" *ngFor="let bairro of bairros">
+    <a class="button-bairro button-brigth" [routerLink]="[bairro]"
+      routerLinkActive="router-link-active"><i class="fas fa-location-arrow"></i> {{ bairro }}</a>
+  </div>
+</div>
