@@ -20,29 +20,29 @@ export class ComercianteService {
     return this.http.get(`https://viacep.com.br/ws/${cepFilter}/json`)
   }
 
-  public create(comerciante: Comerciante): Observable<Comerciante> {
-    return this.http.post<Comerciante>(`${environment.apiUrl}/v1/empresas`, comerciante)
+  public create(comerciante: Partial<Comerciante>): Observable<Partial<Comerciante>> {
+    return this.http.post<Partial<Comerciante>>(`${environment.apiUrl}/v1/empresas`, comerciante)
   }
 
-  public update(comerciante: Comerciante): Observable<Comerciante> {
-    return this.http.put<Comerciante>(`${environment.apiUrl}/v1/empresas`, comerciante)
+  public update(comerciante: Partial<Comerciante>): Observable<Partial<Comerciante>> {
+    return this.http.put<Partial<Comerciante>>(`${environment.apiUrl}/v1/empresas`, comerciante)
   }
 
-  public delete(id: string): Observable<Comerciante> {
-    return this.http.delete<Comerciante>(`${environment.apiUrl}/v1/empresas/${id}`)
+  public delete(id: string): Observable<Partial<Comerciante>> {
+    return this.http.delete<Partial<Comerciante>>(`${environment.apiUrl}/v1/empresas/${id}`)
   }
 
-  public get(id: string): Observable<Comerciante> {
-    return this.http.get<Comerciante>(`${environment.apiUrl}/v1/empresas/${id}`)
+  public get(id: string): Observable<Partial<Comerciante>> {
+    return this.http.get<Partial<Comerciante>>(`${environment.apiUrl}/v1/empresas/${id}`)
   }
 
-  public list(page: number, perPage: number): Observable<ComercianteResult> {
-    return this.http.get<ComercianteResult>(`${environment.apiUrl}/v1/empresas?page=${page}&per_page=${perPage}`)
+  public list(page: number, perPage: number): Observable<Partial<ComercianteResult>> {
+    return this.http.get<Partial<ComercianteResult>>(`${environment.apiUrl}/v1/empresas?page=${page}&per_page=${perPage}`)
   }
 
-  public loadAll(): Promise<ComercianteResult> {
+  public loadAll(): Promise<Partial<ComercianteResult>> {
     const promise = new Promise((resolve, reject) => {
-      const data: ComercianteResult = {
+      const data: Partial<ComercianteResult> = {
         items: []
       }
 
@@ -52,22 +52,22 @@ export class ComercianteService {
     return promise;
   }
 
-  public loadAndSave(): Promise<Comerciante[]> {
+  public loadAndSave(): Promise<any[]> {
     return new Promise((resolve, reject) => {
       this.loadAll()
         .then(r => {
           this.save(r.items);
-          resolve(r.items)
+          resolve(r.items);
         })
-        .catch(reject)
-    })
+        .catch(reject);
+    });
   }
 
-  public save(items: Comerciante[]) {
+  public save(items: Partial<Comerciante[]>) {
     localStorage.setItem('comerciantes', JSON.stringify(items));
   }
 
-  public loadFromCache(): Comerciante[] {
+  public loadFromCache(): Partial<Comerciante[]> {
     const json = localStorage.getItem('comerciantes')
     if (json) {
       return JSON.parse(json)
@@ -77,7 +77,7 @@ export class ComercianteService {
   }
 
 
-  private load(data: ComercianteResult, page: number = 1, resolve, reject) {
+  private load(data: Partial<ComercianteResult>, page: number = 1, resolve, reject) {
     this.list(page, 100)
       .subscribe(r => {
         if (r.items) {
@@ -93,7 +93,7 @@ export class ComercianteService {
   }
 
   public fake(bairros: Bairros) {
-    const comerciante: Comerciante = {
+    const comerciante: Partial<Comerciante> = {
       descricao: faker.company.companyName(),
       usuario: faker.internet.userName().toLowerCase(),
       email: faker.internet.email().toLowerCase(),

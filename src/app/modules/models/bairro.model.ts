@@ -1,3 +1,3 @@
-export class Bairros {
-  bairros: string[]
+export interface Bairros {
+  bairros: string[];
 }

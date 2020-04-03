@@ -14,7 +14,7 @@ import { ComercianteService } from 'src/app/services/comerciante.service';
 export class ListaBairrosComponent implements OnInit, OnDestroy {
 
 
-  public tipoComercio: TipoComercio = {};
+  public tipoComercio: Partial<TipoComercio> = {};
 
   public bairros = [];
 
@@ -28,12 +28,12 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.route.params.subscribe(params => {
-      this.tipoComercio = tiposComercio.find(t => t.id == params['tipo-comercio'])
+      this.tipoComercio = tiposComercio.find(t => t.id === params['tipo-comercio'])
     });
 
     this.bairros = this.comercianteService
       .loadFromCache()
-      .filter(c => c.tipo_negocio.toUpperCase() == this.tipoComercio.nome.toUpperCase())
+      .filter(c => c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase())
       .map(c => c.bairro)
       .sort((a, b) => a > b ? 1 : (a < b ? -1 : 0))
 
@@ -43,7 +43,7 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
     this.comercianteService.loadAndSave()
       .then(data => {
         this.bairros = data
-          .filter(c => c.tipo_negocio.toUpperCase() == this.tipoComercio.nome.toUpperCase())
+          .filter(c => c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase())
           .map(c => c.bairro)
           .sort((a, b) => a > b ? 1 : (a < b ? -1 : 0))
       }).catch(error => console.log(error));

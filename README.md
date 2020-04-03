@@ -43,3 +43,8 @@ A imagem docker será publicada no DockerHub, para facilitar a publicação
 ```
 docker push entregasos/frontend:$VERSAO
 ```
+
+### API
+```
+https://api-entrega-sos.herokuapp.com/v1/empresas
+```

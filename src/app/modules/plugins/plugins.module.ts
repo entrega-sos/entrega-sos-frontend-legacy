@@ -51,6 +51,7 @@ import { DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
 import { environment } from 'src/environments/environment';
 import { SafePipe } from './pipes/safe.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
+import {HeaderComponent} from './header/header.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   url: '/arquivo/upload',
@@ -61,7 +62,6 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
     FormsModule,
     RouterModule,
     TextMaskModule,
@@ -91,6 +91,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     TextAreaGroupComponent,
     SelectGroupComponent,
     RowComponent,
+    HeaderComponent,
 
     ColSm1Component,
     ColSm2Component,
@@ -136,7 +137,6 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   ],
   exports: [
     CommonModule,
-    BrowserModule,
     FormsModule,
     RouterModule,
     TextMaskModule,
@@ -154,6 +154,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     TextAreaGroupComponent,
     SelectGroupComponent,
     RowComponent,
+    HeaderComponent,
 
     ColSm1Component,
     ColSm2Component,

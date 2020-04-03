@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CadastroComercianteComponent } from './cadastro-comerciante/cadastro-comerciante.component';
 
 const routes: Routes = [{
-  path: 'comerciante', children: [
+  path: '', children: [
     { path: 'novo', component: CadastroComercianteComponent }
   ]
 }];

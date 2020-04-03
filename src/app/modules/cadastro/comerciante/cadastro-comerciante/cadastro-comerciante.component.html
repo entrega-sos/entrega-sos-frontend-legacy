@@ -1,80 +1,135 @@
+<app-header></app-header>
+
 <!-- Main content -->
 <section class="content">
 
   <!-- Default box -->
 
   <div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Cadastro de comerciante</h3>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm-6">
-          <input-group [(ngModel)]="comerciante.descricao" label="Nome / Fantasia da Empresa"></input-group>
+    <form #formComerciante="ngForm" (ngSubmit)="onSubmit()">
+      <div class="card-header">
+        <h3 class="card-title">Cadastro de comerciante</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <input-group [(ngModel)]="comerciante.descricao" name="descricao" #descricao="ngModel" label="Nome / Fantasia da Empresa" required></input-group>
+          </div>
+
+          <div class="col-sm-3">
+            <input-group [(ngModel)]="comerciante.whatsapp" name="whatsapp" #whatsapp="ngModel" label="WhatsApp" type="mobile-phone"></input-group>
+          </div>
+
+          <div class="col-sm-3">
+            <input-group [(ngModel)]="comerciante.telefone" name="telefone" #telefone="ngModel" label="telefone" type="mobile-phone" required></input-group>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <label>Faz entrega?</label>
+            <select class="browser-default custom-select" name="delivery" label="Faz entrega?" [(ngModel)]="comerciante.delivery" required>
+              <option [ngValue]="true">Sim</option>
+              <option [ngValue]="false">Não</option>
+            </select>
+          </div>
+          <div class="col-sm-4">
+            <input-group [(ngModel)]="comerciante.usuario" name="usuario" #usuario="ngModel" label="Usuário" type="text" required></input-group>
+          </div>
+          <div class="col-sm-4">
+            <input-group [(ngModel)]="comerciante.senha" name="senha" #senha="ngModel" label="Senha" type="password" required></input-group>
+          </div>
+
+          <div class="col-sm-4">
+            <!-- <input-group [(ngModel)]="comerciante.confirmacaoSenha" label="Confirmação da senha" type="password">
+            </input-group> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2">
+            <input-group [(ngModel)]="comerciante.cep" name="cep" #cep="ngModel" [debounce]="300" (onDebounce)="buscarEndereco()" id="cep"
+                         label="CEP" type="cep" required></input-group>
+          </div>
+
+          <div class="col-sm-4">
+            <input-group [(ngModel)]="comerciante.endereco" name="endereco" #endereco="ngModel" label="Endereço" required></input-group>
+          </div>
+
+          <div class="col-sm-2">
+            <input-group [(ngModel)]="comerciante.bairro" name="bairro" #bairro="ngModel" label="Bairro" required></input-group>
+          </div>
+
+          <div class="col-sm-1">
+            <input-group [(ngModel)]="comerciante.uf" name="uf" #uf="ngModel" label="UF" required></input-group>
+          </div>
+
+          <div class="col-sm-3">
+            <input-group [(ngModel)]="comerciante.cidade" name="cidade" #cidade="ngModel" label="Cidade" required></input-group>
+          </div>
         </div>
 
-        <div class="col-sm-6">
-          <input-group [(ngModel)]="comerciante.whatsapp" label="Telefone / WhatsApp" type="mobile-phone"></input-group>
+        <div class="row">
+          <div class="col-sm-3">
+            <!--<input-group [(ngModel)]="comerciante.tipo_negocio" name="tipo_negocio" #tipo_negocio="ngModel" label="Tipo de Negócio" required></input-group>-->
+            <label for="tipo_negocio">Tipo de Negócio</label>
+            <select class="browser-default custom-select" name="tipo_negocio" id="tipo_negocio" [(ngModel)]="comerciante.tipo_negocio" required>
+              <option *ngFor="let tipo of tipos" [value]="tipo.id">{{tipo.nome}}</option>
+            </select>
+          </div>
+
+          <div class="col-sm-3">
+            <input-group [(ngModel)]="comerciante.dias_horarios" help="ex: 2 a 6, 9h as 18h" name="dias_horarios" #dias_horarios="ngModel" label="Dias e horários"></input-group>
+          </div>
+
+          <div class="col-sm-3">
+            <input-group [(ngModel)]="comerciante.obs" name="obs" #obg="ngModel" label="Observação" help="ex: ponto de referência"></input-group>
+          </div>
+          <div class="col-sm-3">
+            <label>Formas de pagamento</label>
+            <div class="checks">
+              <label *ngFor="let pg of pagamentos">
+                <input type="checkbox" [(ngModel)]="pg.check" [name]="pg.name">{{pg.name}}
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-4">
+            <input-group [(ngModel)]="comerciante.instagram" name="instagram" #instagram="ngModel" label="Instagram"></input-group>
+          </div>
+
+          <div class="col-sm-4">
+            <input-group [(ngModel)]="comerciante.facebook" name="facebook" #facebook="ngModel" label="Facebook"></input-group>
+          </div>
+
+          <div class="col-sm-4">
+            <input-group [(ngModel)]="comerciante.site" name="site" #site="ngModel" label="Site"></input-group>
+          </div>
         </div>
       </div>
+      <!-- /.card-body -->
+      <div class="card-footer text-right">
+        <!--<div class="row">
+          <div class="col-sm-3 offset-sm-6">
+            <botao-voltar></botao-voltar>
+          </div>
+          <div class="col-sm-3">
+            <button type="submit" class="btn btn-primary">
+              <botao-salvar></botao-salvar>
+            </button>
+          </div>
 
-      <div class="row">
-        <div class="col-sm-3">
-          <input-group [(ngModel)]="comerciante.cep" [debounce]="300" (onDebounce)="buscarEndereco()" id="cep"
-            label="CEP" type="cep"></input-group>
-        </div>
+        </div>-->
 
-        <div class="col-sm-4">
-          <input-group [(ngModel)]="comerciante.endereco" label="Endereço"></input-group>
-        </div>
-
-        <div class="col-sm-1">
-          <select-group [(ngModel)]="comerciante.uf" label="UF"></select-group>
-        </div>
-
-        <div class="col-sm-4">
-          <input-group [(ngModel)]="comerciante.cidade" label="Cidade"></input-group>
-        </div>
+        <button class="btn m-btn--air btn-light btn-blockk" type="button" (click)="location.back()"><i class="fa fa-history"></i> Cancelar</button>&nbsp;
+        <button class="btn m-btn--air btn-primary" type="submit" [disabled]="!formComerciante.form.valid">
+          <span *ngIf="!showLoading else saving"><i class="fa fa-save"></i> Salvar</span>
+          <ng-template #saving>
+            <i class="fa fa-spin fa-spinner"></i>
+          </ng-template>
+        </button>
       </div>
-
-      <div class="row">
-        <div class="col-sm-4">
-          <select-group label="Tipo de Negócio"></select-group>
-        </div>
-
-        <div class="col-sm-4">
-          <input-group label="Instagram"></input-group>
-        </div>
-
-        <div class="col-sm-4">
-          <input-group label="Facebook"></input-group>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-sm-4">
-          <input-group [(ngModel)]="comerciante.senha" label="Senha" type="password"></input-group>
-        </div>
-
-        <div class="col-sm-4">
-          <!-- <input-group [(ngModel)]="comerciante.confirmacaoSenha" label="Confirmação da senha" type="password">
-          </input-group> -->
-        </div>
-      </div>
-
-    </div>
-    <!-- /.card-body -->
-    <div class="card-footer">
-      <div class="row">
-        <div class="col-sm-3 offset-sm-6">
-          <botao-voltar></botao-voltar>
-        </div>
-        <div class="col-sm-3">
-          <botao-salvar></botao-salvar>
-        </div>
-      </div>
-    </div>
+    </form>
     <!-- /.card-footer-->
   </div>
   <!-- /.card -->
