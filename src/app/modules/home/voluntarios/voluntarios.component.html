@@ -19,11 +19,19 @@
         <a *ngIf="v.linkedin" target="_blank" href="https://linkedin.com/in/{{ v.linkedin }}"><i
             class="fab fa-linkedin"></i></a>
 
-        <a *ngIf="v.email" target="_blank" href="mailto:{{ v.email }}"><i class="fas fa-at"></i></a>
+        <a *ngIf="v.twitter" target="_blank" href="https://twitter.com/{{ v.twitter }}"><i class="fab fa-twitter"></i></a>
 
-        <a *ngIf="v.twitter" target="_blank" href="mailto:{{ v.twitter }}"><i class="fab fa-twitter"></i></a>
+        <a *ngIf="v.github" target="_blank" href="https://github.com/{{ v.github }}"><i class="fab fa-github"></i></a>
 
         <a *ngIf="v.site" target="_blank" href="{{ v.site }}"><i class="fab fa-internet-explorer"></i></a>
+
+        <a *ngIf="v.googlePlay" target="_blank" href="{{ v.googlePlay }}"><i class="fab fa-google-play"></i></a>
+
+        <a *ngIf="v.appleStore" target="_blank" href="{{ v.appleStore }}"><i class="fab fa-apple"></i></a>
+
+        <a *ngIf="v.telegram" target="_blank" href="https://t.me/{{ v.telegram }}"><i class="fab fa-telegram"></i></a>
+
+        <a *ngIf="v.whatsapp" target="_blank" href="https://wa.me/{{ v.whatsapp }}"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </div>
@@ -58,7 +66,7 @@
 
           <a *ngIf="v.twitter" target="_blank" href="mailto:{{ v.twitter }}"><i class="fab fa-twitter"></i></a>
 
-          <a *ngIf="v.site" target="_blank" href="{{ v.site }}"><i class="fab fa-internet-explorer"></i></a>
+
         </div>
       </div>
     </div>

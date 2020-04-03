@@ -45,7 +45,7 @@
             </div>
 
             <div class="col-sm-3">
-              <input-group [(ngModel)]="comerciante.telefone" name="telefone" #telefone="ngModel" label="telefone" type="mobile-phone" required></input-group>
+              <input-group [(ngModel)]="comerciante.telefone" name="telefone" #telefone="ngModel" label="Telefone" type="mobile-phone" required></input-group>
             </div>
           </div>
           <div class="row">
@@ -93,10 +93,9 @@
 
           <div class="row">
             <div class="col-sm-3">
-              <!--<input-group [(ngModel)]="comerciante.tipo_negocio" name="tipo_negocio" #tipo_negocio="ngModel" label="Tipo de Negócio" required></input-group>-->
               <label for="tipo_negocio">Tipo de Negócio</label>
               <select class="browser-default custom-select" name="tipo_negocio" id="tipo_negocio" [(ngModel)]="comerciante.tipo_negocio" required>
-                <option *ngFor="let tipo of tipos" [value]="tipo.id">{{tipo.nome}}</option>
+                <option *ngFor="let tipo of tipos" [value]="tipo.nome">{{tipo.nome}}</option>
               </select>
             </div>
 

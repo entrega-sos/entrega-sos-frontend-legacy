@@ -38,15 +38,21 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
         .loadFromCache()
         .filter(this.filtroTipoNegocio)
         .map(c => c.bairro)
+        .filter(this.onlyUnique)
         .sort(this.sortBairros)
 
       this.comercianteService.loadAndSave()
         .then(data => this.bairros = data
           .filter(this.filtroTipoNegocio)
           .map(c => c.bairro)
+          .filter(this.onlyUnique)
           .sort(this.sortBairros)
         ).catch(error => console.log(error));
     });
+  }
+
+  onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
   }
 
   ngOnDestroy(): void {
