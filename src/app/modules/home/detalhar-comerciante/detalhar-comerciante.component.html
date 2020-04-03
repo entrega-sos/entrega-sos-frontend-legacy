@@ -1,113 +1,113 @@
 <!--<ng-container *ngIf="comerciante">-->
-  <h2> {{ comerciante?.descricao }}</h2>
-  <h3> {{ comerciante?.bairro }} </h3>
-  <h4> {{ comerciante?.tipo_negocio }} </h4>
+<h2> {{ comerciante?.descricao }}</h2>
+<h3> {{ comerciante?.bairro }} </h3>
+<h4> {{ comerciante?.tipo_negocio }} </h4>
 
-  <div class="card-comerciante">
+<div class="card-comerciante">
 
-    <div class="row no-padding">
-      <div class="col-lg-6 col-sm-12 no-padding">
-        <h3><i class="arrow"></i> Contato</h3>
+  <div class="row no-padding">
+    <div class="col-lg-6 col-sm-12 no-padding">
+      <h3><i class="arrow"></i> Contato</h3>
 
-        <div class="row">
-          <div class="col-lg-12 col-sm-12">
-            <strong>Email: </strong> {{comerciante.email }}
-          </div>
+      <div class="row">
+        <div class="col-lg-12 col-sm-12">
+          <strong>Email: </strong> {{comerciante.email }}
+        </div>
 
-          <div class="col-lg-12 col-sm-12">
-            <strong>Telefone: </strong> <a class=""
-                                           href="tel:{{ comerciante.telefone }}">{{comerciante.telefone |  phone }}</a>
-          </div>
+        <div class="col-lg-12 col-sm-12">
+          <strong>Telefone: </strong> <a
+            href="tel:{{ comerciante.telefone | numberOnly }}">{{comerciante.telefone |  phone }}</a>
+        </div>
 
-          <div class="col-lg-12 col-sm-12">
-            <strong>Whatsapp: </strong> <a
-            href="https://wa.me/55{{ comerciante.whatsapp }}?text=Conversa iniciada pelo Entrega SOS"
+        <div class="col-lg-12 col-sm-12">
+          <strong>Whatsapp: </strong> <a
+            href="https://wa.me/55{{ comerciante.whatsapp | numberOnly }}?text=Conversa iniciada pelo Entrega SOS"
             target="_blank">{{comerciante.whatsapp | phone }}</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-sm-12 no-padding">
-        <h3><i class="arrow"></i> Entrega</h3>
-
-        <div class="row no-padding">
-          <div class="col-lg-6 col-sm-12">
-            <div class="title-pedido-giross">Entrega realizada pela <img src="assets/images/logo-giross.svg" /></div>
-
-            <div class="button-pedido-giross">
-              <a href="https://wa.me/5577999789680" target="_blank" class="button-dark"><i class="fab fa-whatsapp"></i>
-                Pedido pelo whatsapp</a>
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-sm-12">
-            <div class="title-entrega-estabelecimento">
-              Entrega realizada pelo estabelecimento
-            </div>
-            <div class="button-pedido-estabelecimento">
-              <a class="button-brigth"
-                 href="https://wa.me/55{{ comerciante.whatsapp }}?text=Conversa iniciada pelo Entrega SOS"
-                 target="_blank"><i class="fab fa-whatsapp"></i> {{comerciante.whatsapp | phone }}</a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
+    <div class="col-lg-6 col-sm-12 no-padding">
+      <h3><i class="arrow"></i> Entrega</h3>
 
-    <hr />
+      <div class="row no-padding">
+        <div class="col-lg-6 col-sm-12">
+          <div class="title-pedido-giross">Entrega realizada pela <img src="assets/images/logo-giross.svg" /></div>
 
-    <h3>Endereço</h3>
-    <div class="row">
-      <div class="col-lg-6 col-sm-12">
-        <strong> CEP: </strong>{{ comerciante.cep }}
-      </div>
+          <div class="button-pedido-giross">
+            <a href="https://wa.me/5577999789680" target="_blank" class="button-dark"><i class="fab fa-whatsapp"></i>
+              Pedido pelo whatsapp</a>
+          </div>
+        </div>
 
-      <div class="col-lg-6 col-sm-12">
-        <strong>Endereço: </strong>{{ comerciante.endereco }}
-      </div>
-
-      <div class="col-lg-6 col-sm-12">
-        <strong>Bairro: </strong>{{ comerciante.bairro }}
-      </div>
-
-      <div class="col-lg-6 col-sm-12">
-        <strong>Cidade/UF: </strong>{{ comerciante.cidade }}/{{ comerciante.uf }}
-      </div>
-    </div>
-
-    <hr />
-
-    <h3>Outras informações</h3>
-
-    <div class="row">
-      <div class="col-lg-6 col-sm-12">
-        Meios de pagamento: <strong>{{ comerciante.meio_pagamento }}</strong>
-      </div>
-
-
-      <div class="col-lg-6 col-sm-12">
-        Aceita Delivery: <strong class="text-orange">{{ comerciante.delivery? 'Sim': 'Não' }}</strong>
-      </div>
-
-
-
-      <div class="col-lg-6 col-sm-12">
-        Observações: <strong>{{ comerciante.obs }}</strong>
-      </div>
-
-      <div class="col-lg-6 col-sm-12">
-        Horários: <strong>{{ comerciante.dias_horarios }}</strong>
-      </div>
-
-
-      <div class="col-lg-6 col-sm-12">
-        Redes sociais:
-
-        <div class="social-icons">
-          <a href="{{comerciante.facebook}}" target="_blank"><img src="assets/images/logo-facebook.svg" /> </a>
-          <a href="{{comerciante.instagram}}" target="_blank"><img src="assets/images/logo-instagram.svg" /> </a>
-          <a href="{{comerciante.site}}" target="_blank"><img src="assets/images/logo-site.svg" /> </a>
+        <div class="col-lg-6 col-sm-12">
+          <div class="title-entrega-estabelecimento">
+            Entrega realizada pelo estabelecimento
+          </div>
+          <div class="button-pedido-estabelecimento">
+            <a class="button-brigth"
+              href="https://wa.me/55{{ comerciante.whatsapp | numberOnly }}?text=Conversa iniciada pelo Entrega SOS"
+              target="_blank"><i class="fab fa-whatsapp"></i> {{comerciante.whatsapp | phone }}</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <hr />
+
+  <h3>Endereço</h3>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12">
+      <strong> CEP: </strong>{{ comerciante.cep }}
+    </div>
+
+    <div class="col-lg-6 col-sm-12">
+      <strong>Endereço: </strong>{{ comerciante.endereco }}
+    </div>
+
+    <div class="col-lg-6 col-sm-12">
+      <strong>Bairro: </strong>{{ comerciante.bairro }}
+    </div>
+
+    <div class="col-lg-6 col-sm-12">
+      <strong>Cidade/UF: </strong>{{ comerciante.cidade }}/{{ comerciante.uf }}
+    </div>
+  </div>
+
+  <hr />
+
+  <h3>Outras informações</h3>
+
+  <div class="row">
+    <div class="col-lg-6 col-sm-12">
+      Meios de pagamento: <strong>{{ comerciante.meio_pagamento }}</strong>
+    </div>
+
+
+    <div class="col-lg-6 col-sm-12">
+      Aceita Delivery: <strong class="text-orange">{{ comerciante.delivery? 'Sim': 'Não' }}</strong>
+    </div>
+
+
+
+    <div class="col-lg-6 col-sm-12">
+      Observações: <strong>{{ comerciante.obs }}</strong>
+    </div>
+
+    <div class="col-lg-6 col-sm-12">
+      Horários: <strong>{{ comerciante.dias_horarios }}</strong>
+    </div>
+
+
+    <div class="col-lg-6 col-sm-12">
+      Redes sociais:
+
+      <div class="social-icons">
+        <a href="{{comerciante.facebook}}" target="_blank"><img src="assets/images/logo-facebook.svg" /> </a>
+        <a href="{{comerciante.instagram}}" target="_blank"><img src="assets/images/logo-instagram.svg" /> </a>
+        <a href="{{comerciante.site}}" target="_blank"><img src="assets/images/logo-site.svg" /> </a>
+      </div>
+    </div>
+  </div>
+</div>
 <!--</ng-container>-->

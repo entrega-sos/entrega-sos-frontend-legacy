@@ -20,6 +20,10 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
+  filtroTipoNegocio: (value: any, index: number, array: any[]) => unknown = c => c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase() || c.tipo_negocio.toUpperCase() === this.tipoComercio.id.toUpperCase();
+
+  sortBairros: (a: any, b: any) => number = (a, b) => a > b ? 1 : (a < b ? -1 : 0);
+
   constructor(
     private bairrosService: BairrosService,
     private comercianteService: ComercianteService,
@@ -32,42 +36,15 @@ export class ListaBairrosComponent implements OnInit, OnDestroy {
       this.loadBairros();
     });
 
-    /*this.bairros = this.comercianteService
-      .loadFromCache()
-      .filter(c => c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase())
-      .map(c => c.bairro)
-      .sort((a, b) => a > b ? 1 : (a < b ? -1 : 0))
-
-    console.log(this.bairros.length)
-    console.log(this.comercianteService.loadFromCache().length)
-
     this.comercianteService.loadAndSave()
-      .then(data => {
-        this.bairros = data
-          .filter(c => c.tipo_negocio.toUpperCase() === this.tipoComercio.nome.toUpperCase())
-          .map(c => c.bairro)
-          .sort((a, b) => a > b ? 1 : (a < b ? -1 : 0))
-      }).catch(error => console.log(error));*/
+      .then(data => this.bairros = data
+        .filter(this.filtroTipoNegocio)
+        .map(c => c.bairro)
+        .sort(this.sortBairros)
+      ).catch(error => console.log(error));
   }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(s => s.unsubscribe());
   }
-
-  private loadBairros() {
-    this.showLoad = true;
-    this.comercianteService.list(1, 20000).subscribe(result => {
-      this.showLoad = false;
-      if (result.items instanceof Array) {
-        for (const comerciante of result.items.filter(com => com.tipo_negocio === this.tipoComercio.id || com.tipo_negocio === this.tipoComercio.nome)) {
-          this.bairros.add(comerciante.bairro);
-        }
-      }
-    }, err => this.showLoad = false);
-  }
-
-  voltar() {
-    window.history.back();
-  }
-
 }
