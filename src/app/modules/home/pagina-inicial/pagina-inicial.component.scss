@@ -96,6 +96,17 @@
       }
     }
 
+    .home-buttons-voluntarios {
+      display: block;
+      margin-top: 10px;
+
+      .button-voluntarios {
+        // width: 626px;
+        width: 100%;
+        display: block;
+      }
+    }
+
     .home-image {
       img.logo-large {
         display: block;
