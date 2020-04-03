@@ -1,15 +1,15 @@
-<div class="home-block">
-  <div class="home-text">
+<div class="home-block row">
+  <div class="home-text col-lg-6">
     <h1>Entrega SOS</h1>
     <p>Aqui você encontra mercados, farmácias e outros estabelecimentos que entregam as compras na sua casa, e se eles
-      não puderem entregar, a <img src="assets/images/logo-giross.svg"/> pode fazer isso por você!</p>
+      não puderem entregar, a <img src="assets/images/logo-giross.svg" /> pode fazer isso por você!</p>
   </div>
 
-  <div class="home-image">
+  <div class="home-image col-lg-6">
     <img class="logo-large" src="assets/images/motoqueiro.svg" />
   </div>
 
-  <div class="home-buttons">
+  <div class="home-buttons col-lg-12">
     <a [routerLink]="['tipo-comercio']" routerLinkActive="router-link-active"
       class="button-home button-consultar button-dark"><i class="fas fa-search"></i>
       Consultar
@@ -19,4 +19,8 @@
       estabelecimento</a>
   </div>
 
+  <div class="home-buttons-voluntarios col-lg-12">
+    <a routerLink="voluntarios" routerLinkActive="router-link-active"
+      class="button-home button-voluntarios button-brigth"><i class="fas fa-heart"></i> Voluntários     </a>
+  </div>
 </div>

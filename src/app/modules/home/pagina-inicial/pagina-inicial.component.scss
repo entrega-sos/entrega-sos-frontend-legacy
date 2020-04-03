@@ -5,7 +5,7 @@
     margin-top: 80px;
 
     .home-text {
-      float: left;
+      // float: left;
       margin-top: 170px;
 
       h1 {
@@ -24,9 +24,8 @@
     }
 
     .home-buttons {
-      float: left;
       display: block;
-      margin-top: 50px;
+      margin-top: -210px;
 
       .button-consultar {
         margin-top: 10px;
@@ -39,9 +38,17 @@
       }
     }
 
-    .home-image {
-      float: right;
+    .home-buttons-voluntarios {
+      display: block;
+      margin-top: -140px;
 
+      .button-voluntarios {
+        width: 626px;
+        display: block;
+      }
+    }
+
+    .home-image {
       img.logo-large {
         height: 600px;
       }

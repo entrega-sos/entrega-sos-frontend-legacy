@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "libphonenumber-js": "^1.7.48",
+    "md5-typescript": "^1.0.5",
     "ngx-dropzone-wrapper": "^9.0.0",
     "path": "^0.12.7",
     "rxjs": "~6.5.4",

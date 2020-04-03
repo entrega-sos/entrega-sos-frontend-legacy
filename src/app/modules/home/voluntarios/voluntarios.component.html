@@ -1,0 +1,66 @@
+<h2>Parceiros</h2>
+<p>Conheça aqueles que apoiaram o projeto</p>
+
+<hr />
+<div class="row">
+  <div class="item col-12 col-xl-6" *ngFor="let v of dados.parceiros">
+    <div class="button-brigth">
+      <img class="foto-voluntario img-circle img-fluid img-thumbnail" src="{{ v.foto }}" />
+      <p class="nome">{{ v.nome }}</p>
+    </div>
+
+    <div class="redes-sociais">
+      <p>Redes sociais</p>
+
+      <div class="links">
+        <a *ngIf="v.instagram" target="_blank" href="https://instagram.com/{{ v.instagram }}"><i
+            class="fab fa-instagram"></i></a>
+
+        <a *ngIf="v.linkedin" target="_blank" href="https://linkedin.com/in/{{ v.linkedin }}"><i
+            class="fab fa-linkedin"></i></a>
+
+        <a *ngIf="v.email" target="_blank" href="mailto:{{ v.email }}"><i class="fas fa-at"></i></a>
+
+        <a *ngIf="v.twitter" target="_blank" href="mailto:{{ v.twitter }}"><i class="fab fa-twitter"></i></a>
+
+        <a *ngIf="v.site" target="_blank" href="{{ v.site }}"><i class="fab fa-internet-explorer"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h2>Voluntários</h2>
+<p>Conheça aqueles que ajudaram a construir este projeto</p>
+
+<hr />
+
+<div class="row">
+  <div class="item col-12 col-xl-6" *ngFor="let v of dados.voluntarios">
+    <div class="button-brigth">
+      <img class="foto-voluntario img-circle img-fluid img-thumbnail" src="{{ v.foto }}" />
+      <p class="nome">{{ v.nome }}</p>
+      <p class="ocupacao">{{ v.ocupacao }}</p>
+
+      <div class="redes-sociais">
+        <p>Redes sociais</p>
+
+        <div class="links">
+          <a *ngIf="v.instagram" target="_blank" href="https://instagram.com/{{ v.instagram }}"><i
+              class="fab fa-instagram"></i></a>
+
+          <a *ngIf="v.linkedin" target="_blank" href="https://linkedin.com/in/{{ v.linkedin }}"><i
+              class="fab fa-linkedin"></i></a>
+
+          <a *ngIf="v.github" target="_blank" href="https://github.com/{{ v.github }}"><i class="fab fa-github"></i></a>
+
+          <a *ngIf="v.email" target="_blank" href="mailto:{{ v.email }}"><i class="fas fa-at"></i></a>
+
+          <a *ngIf="v.twitter" target="_blank" href="mailto:{{ v.twitter }}"><i class="fab fa-twitter"></i></a>
+
+          <a *ngIf="v.site" target="_blank" href="{{ v.site }}"><i class="fab fa-internet-explorer"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

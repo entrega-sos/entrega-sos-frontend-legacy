@@ -10,6 +10,7 @@ import {DetalharComercianteComponent} from './detalhar-comerciante/detalhar-come
 import {ListaBairrosComponent} from './lista-bairros/lista-bairros.component';
 import {PaginaInicialComponent} from './pagina-inicial/pagina-inicial.component';
 import {ListaTipoComercioComponent} from './lista-tipo-comercio/lista-tipo-comercio.component';
+import { VoluntariosComponent } from './voluntarios/voluntarios.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {ListaTipoComercioComponent} from './lista-tipo-comercio/lista-tipo-comer
     DetalharComercianteComponent,
     ListaBairrosComponent,
     PaginaInicialComponent,
-    ListaTipoComercioComponent
+    ListaTipoComercioComponent,
+    VoluntariosComponent
   ],
   imports: [
     CommonModule,

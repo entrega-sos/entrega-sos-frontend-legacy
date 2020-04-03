@@ -1,0 +1,309 @@
+.row {
+  margin: 0 !important;
+}
+
+.bairro-selecionado {
+  font-weight: 600;
+  font-style: italic;
+}
+
+
+
+@media(min-width: 900px) {
+  .margin {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  h2 {
+    @extend .margin;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    margin-top: 30px;
+  }
+
+  h3 {
+    @extend .margin;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #F8930D;
+  }
+
+  p {
+    @extend .margin;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  a.button-comerciantes {
+    @extend .margin;
+    margin-top: 10px;
+    display: block;
+
+  }
+
+  .item {
+    margin-top: 10px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    // padding-top: 10px;
+
+    .button-brigth {
+      padding: 10px;
+      text-align: left;
+      height: 100px;
+    }
+
+    height: 100px;
+    width: 300px;
+
+    .foto-voluntario {
+      position: absolute;
+      top: 12px;
+      left: 40px;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    p.nome {
+      position: absolute;
+      top: 27px;
+      left: 100px;
+      font-weight: 600;
+    }
+
+    p.ocupacao {
+      position: absolute;
+      top: 56px;
+      left: 100px;
+      font-weight: 300;
+    }
+
+    .redes-sociais {
+      position: absolute;
+      top: 26px;
+      height: 70px;
+      left: 380px;
+      width: 300px;
+
+      p {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-weight: 600;
+      }
+
+      .links {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+
+        a {
+          font-size: 30px;
+          margin-right: 10px;
+
+          i {
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 899px) {
+  .margin-small {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  h2 {
+    @extend .margin-small;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  h3 {
+    @extend .margin-small;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 18px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #F8930D;
+  }
+
+  p {
+    @extend .margin-small;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  a.button-comerciantes {
+    @extend .margin-small;
+    margin-top: 10px;
+    display: block;
+  }
+
+  .item {
+    margin-top: 10px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    // padding-top: 10px;
+
+    .button-brigth {
+      padding: 10px;
+      text-align: left;
+      height: 100px;
+    }
+
+    height: 100px;
+    width: 300px;
+
+    .foto-voluntario {
+      position: absolute;
+      top: 12px;
+      left: 40px;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    p.nome {
+      position: absolute;
+      top: 27px;
+      left: 100px;
+      font-weight: 600;
+    }
+
+    p.ocupacao {
+      position: absolute;
+      top: 56px;
+      left: 100px;
+      font-weight: 300;
+    }
+
+    .redes-sociais {
+      position: absolute;
+      top: 26px;
+      height: 70px;
+      left: 380px;
+      width: 300px;
+
+      p {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-weight: 600;
+      }
+
+      .links {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+
+        a {
+          font-size: 30px;
+          margin-right: 10px;
+
+          i {
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 699px) {
+  .item {
+    margin-top: 10px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    // padding-top: 10px;
+
+    .button-brigth {
+      padding: 10px;
+      text-align: left;
+      height: 170px;
+    }
+
+    height: 200px;
+    // width: 300px;
+
+    .foto-voluntario {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    p.nome {
+      position: absolute;
+      top: 27px;
+      left: 100px;
+      font-weight: 600;
+    }
+
+    p.ocupacao {
+      position: absolute;
+      top: 56px;
+      left: 100px;
+      font-weight: 300;
+    }
+
+    .redes-sociais {
+      position: absolute;
+      top: 90px;
+      height: 70px;
+      left: 100px;
+      width: 300px;
+
+      p {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-weight: 600;
+      }
+
+      .links {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+
+        a {
+          font-size: 30px;
+          margin-right: 10px;
+
+          i {
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}
