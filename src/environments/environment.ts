@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'https://api-entrega-sos.herokuapp.com',
-  apiUrl: 'http://361bd3b9.ngrok.io',
+  apiUrl: 'https://api-entrega-sos.herokuapp.com',
+  // apiUrl: 'http://361bd3b9.ngrok.io',
   versao: '1.0.1'
 };
 
