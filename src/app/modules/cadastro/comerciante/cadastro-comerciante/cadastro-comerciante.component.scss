@@ -1,6 +1,7 @@
 .checks {
   display: flex;
   align-items: center;
+
   label {
     display: flex;
     align-items: center;
@@ -13,11 +14,13 @@
     padding-left: .5rem;
     font-size: .95rem;
     cursor: pointer;
+
     input {
       margin-right: .5rem;
     }
   }
 }
+
 .terms {
   width: 100%;
   max-width: 1024px;
@@ -38,8 +41,19 @@
 
   .buttons {
     padding: 1rem;
+
     button {
       margin: 0 .5rem;
     }
   }
+}
+
+.card-subtitle {
+  float: right;
+  font-size: 10pt;
+  text-align: justify;
+  // color: gray;
+  margin-top: 20px;
+  
+  // text-decoration: underline;
 }
