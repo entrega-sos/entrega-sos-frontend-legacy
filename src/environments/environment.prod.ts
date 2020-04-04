@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api-entrega-sos.herokuapp.com',
+  apiUrl: 'https://entregasos.com.br',
   versao: '1.0.1'
 };
