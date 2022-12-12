@@ -22,7 +22,7 @@
     "@angular/router": "~9.0.7",
     "@angular/service-worker": "~9.0.7",
     "angular2-text-mask": "^9.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "faker": "^4.1.0",
     "libphonenumber-js": "^1.7.48",
     "md5-typescript": "^1.0.5",
